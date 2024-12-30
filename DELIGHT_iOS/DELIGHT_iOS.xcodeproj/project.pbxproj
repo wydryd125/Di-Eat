@@ -7,8 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		095B5E152D22825F00FCEF62 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 095B5E132D22825F00FCEF62 /* Poppins-Medium.ttf */; };
+		095B5E162D22825F00FCEF62 /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 095B5E142D22825F00FCEF62 /* Poppins-Light.ttf */; };
+		095B5E182D22827900FCEF62 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 095B5E172D22827900FCEF62 /* Poppins-Regular.ttf */; };
+		095B5E1D2D2282E000FCEF62 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B5E1B2D2282E000FCEF62 /* Extension+UIColor.swift */; };
+		095B5E1E2D2282E000FCEF62 /* Extension+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B5E1C2D2282E000FCEF62 /* Extension+UIFont.swift */; };
+		095B5E202D2282FD00FCEF62 /* DelightTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B5E1F2D2282FD00FCEF62 /* DelightTabBar.swift */; };
+		095B5E222D22836F00FCEF62 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B5E212D22836F00FCEF62 /* BaseViewController.swift */; };
+		095B5E242D22838900FCEF62 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B5E232D22838900FCEF62 /* BaseView.swift */; };
+		095B5E262D2283D000FCEF62 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B5E252D2283D000FCEF62 /* ActivityView.swift */; };
+		095B5E292D2283FE00FCEF62 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 095B5E282D2283FE00FCEF62 /* SnapKit */; };
+		095B5E2D2D22A6AA00FCEF62 /* DelightChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B5E2C2D22A6AA00FCEF62 /* DelightChartView.swift */; };
+		095B5E2F2D22A8ED00FCEF62 /* DelightSwitchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B5E2E2D22A8ED00FCEF62 /* DelightSwitchButton.swift */; };
+		095B5E322D22B28000FCEF62 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 095B5E312D22B28000FCEF62 /* DGCharts */; };
+		095B5E352D22BEC900FCEF62 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B5E342D22BEC800FCEF62 /* TransactionTableViewCell.swift */; };
+		09EDE0FB2D22CCB400AD7149 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09EDE0FA2D22CCB300AD7149 /* Poppins-Bold.ttf */; };
+		09EDE0FD2D22D09900AD7149 /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EDE0FC2D22D09900AD7149 /* Extension+UIButton.swift */; };
 		09F3C4FF2D225A1F002D532F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F3C4FE2D225A1F002D532F /* AppDelegate.swift */; };
-		09F3C5032D225A1F002D532F /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F3C5022D225A1F002D532F /* TransactionsViewController.swift */; };
+		09F3C5032D225A1F002D532F /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F3C5022D225A1F002D532F /* ActivityViewController.swift */; };
 		09F3C5082D225A20002D532F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09F3C5072D225A20002D532F /* Assets.xcassets */; };
 		09F3C50B2D225A20002D532F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 09F3C50A2D225A20002D532F /* Base */; };
 		09F3C5162D225A21002D532F /* DELIGHT_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F3C5152D225A21002D532F /* DELIGHT_iOSTests.swift */; };
@@ -34,9 +50,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		095B5E132D22825F00FCEF62 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		095B5E142D22825F00FCEF62 /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
+		095B5E172D22827900FCEF62 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		095B5E1B2D2282E000FCEF62 /* Extension+UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
+		095B5E1C2D2282E000FCEF62 /* Extension+UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIFont.swift"; sourceTree = "<group>"; };
+		095B5E1F2D2282FD00FCEF62 /* DelightTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelightTabBar.swift; sourceTree = "<group>"; };
+		095B5E212D22836F00FCEF62 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		095B5E232D22838900FCEF62 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		095B5E252D2283D000FCEF62 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		095B5E2C2D22A6AA00FCEF62 /* DelightChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelightChartView.swift; sourceTree = "<group>"; };
+		095B5E2E2D22A8ED00FCEF62 /* DelightSwitchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelightSwitchButton.swift; sourceTree = "<group>"; };
+		095B5E342D22BEC800FCEF62 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		09EDE0FA2D22CCB300AD7149 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		09EDE0FC2D22D09900AD7149 /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
 		09F3C4FB2D225A1F002D532F /* DELIGHT_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DELIGHT_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09F3C4FE2D225A1F002D532F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		09F3C5022D225A1F002D532F /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
+		09F3C5022D225A1F002D532F /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		09F3C5072D225A20002D532F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09F3C50A2D225A20002D532F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09F3C50C2D225A20002D532F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,6 +82,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				095B5E322D22B28000FCEF62 /* DGCharts in Frameworks */,
+				095B5E292D2283FE00FCEF62 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +104,89 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		095B5E0D2D2281EF00FCEF62 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				095B5E122D22824C00FCEF62 /* Fonts */,
+				095B5E1F2D2282FD00FCEF62 /* DelightTabBar.swift */,
+				095B5E2C2D22A6AA00FCEF62 /* DelightChartView.swift */,
+				095B5E2E2D22A8ED00FCEF62 /* DelightSwitchButton.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		095B5E0E2D2281F200FCEF62 /* Sence */ = {
+			isa = PBXGroup;
+			children = (
+				09F3C4FE2D225A1F002D532F /* AppDelegate.swift */,
+				095B5E192D22828B00FCEF62 /* Base */,
+				095B5E1A2D22829600FCEF62 /* Activity */,
+			);
+			path = Sence;
+			sourceTree = "<group>";
+		};
+		095B5E0F2D2281F500FCEF62 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		095B5E102D2281F800FCEF62 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		095B5E112D22823000FCEF62 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				095B5E1B2D2282E000FCEF62 /* Extension+UIColor.swift */,
+				095B5E1C2D2282E000FCEF62 /* Extension+UIFont.swift */,
+				09EDE0FC2D22D09900AD7149 /* Extension+UIButton.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		095B5E122D22824C00FCEF62 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				09EDE0FA2D22CCB300AD7149 /* Poppins-Bold.ttf */,
+				095B5E172D22827900FCEF62 /* Poppins-Regular.ttf */,
+				095B5E142D22825F00FCEF62 /* Poppins-Light.ttf */,
+				095B5E132D22825F00FCEF62 /* Poppins-Medium.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		095B5E192D22828B00FCEF62 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				095B5E232D22838900FCEF62 /* BaseView.swift */,
+				095B5E212D22836F00FCEF62 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		095B5E1A2D22829600FCEF62 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				095B5E332D22BE8B00FCEF62 /* Cell */,
+				095B5E252D2283D000FCEF62 /* ActivityView.swift */,
+				09F3C5022D225A1F002D532F /* ActivityViewController.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		095B5E332D22BE8B00FCEF62 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				095B5E342D22BEC800FCEF62 /* TransactionTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		09F3C4F22D225A1F002D532F = {
 			isa = PBXGroup;
 			children = (
@@ -95,8 +210,11 @@
 		09F3C4FD2D225A1F002D532F /* DELIGHT_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				09F3C4FE2D225A1F002D532F /* AppDelegate.swift */,
-				09F3C5022D225A1F002D532F /* TransactionsViewController.swift */,
+				095B5E112D22823000FCEF62 /* Extensions */,
+				095B5E102D2281F800FCEF62 /* Network */,
+				095B5E0F2D2281F500FCEF62 /* Model */,
+				095B5E0E2D2281F200FCEF62 /* Sence */,
+				095B5E0D2D2281EF00FCEF62 /* UIComponents */,
 				09F3C5072D225A20002D532F /* Assets.xcassets */,
 				09F3C5092D225A20002D532F /* LaunchScreen.storyboard */,
 				09F3C50C2D225A20002D532F /* Info.plist */,
@@ -137,6 +255,10 @@
 			dependencies = (
 			);
 			name = DELIGHT_iOS;
+			packageProductDependencies = (
+				095B5E282D2283FE00FCEF62 /* SnapKit */,
+				095B5E312D22B28000FCEF62 /* DGCharts */,
+			);
 			productName = DELIGHT_iOS;
 			productReference = 09F3C4FB2D225A1F002D532F /* DELIGHT_iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -209,6 +331,10 @@
 				Base,
 			);
 			mainGroup = 09F3C4F22D225A1F002D532F;
+			packageReferences = (
+				095B5E272D2283FE00FCEF62 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				095B5E302D22B28000FCEF62 /* XCRemoteSwiftPackageReference "Charts" */,
+			);
 			productRefGroup = 09F3C4FC2D225A1F002D532F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -225,8 +351,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				095B5E152D22825F00FCEF62 /* Poppins-Medium.ttf in Resources */,
+				09EDE0FB2D22CCB400AD7149 /* Poppins-Bold.ttf in Resources */,
 				09F3C5082D225A20002D532F /* Assets.xcassets in Resources */,
 				09F3C50B2D225A20002D532F /* Base in Resources */,
+				095B5E162D22825F00FCEF62 /* Poppins-Light.ttf in Resources */,
+				095B5E182D22827900FCEF62 /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,8 +381,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09F3C5032D225A1F002D532F /* TransactionsViewController.swift in Sources */,
+				09F3C5032D225A1F002D532F /* ActivityViewController.swift in Sources */,
+				095B5E352D22BEC900FCEF62 /* TransactionTableViewCell.swift in Sources */,
+				095B5E2F2D22A8ED00FCEF62 /* DelightSwitchButton.swift in Sources */,
+				095B5E202D2282FD00FCEF62 /* DelightTabBar.swift in Sources */,
 				09F3C4FF2D225A1F002D532F /* AppDelegate.swift in Sources */,
+				09EDE0FD2D22D09900AD7149 /* Extension+UIButton.swift in Sources */,
+				095B5E1E2D2282E000FCEF62 /* Extension+UIFont.swift in Sources */,
+				095B5E242D22838900FCEF62 /* BaseView.swift in Sources */,
+				095B5E262D2283D000FCEF62 /* ActivityView.swift in Sources */,
+				095B5E1D2D2282E000FCEF62 /* Extension+UIColor.swift in Sources */,
+				095B5E2D2D22A6AA00FCEF62 /* DelightChartView.swift in Sources */,
+				095B5E222D22836F00FCEF62 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +729,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		095B5E272D2283FE00FCEF62 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		095B5E302D22B28000FCEF62 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		095B5E282D2283FE00FCEF62 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 095B5E272D2283FE00FCEF62 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		095B5E312D22B28000FCEF62 /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 095B5E302D22B28000FCEF62 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 09F3C4F32D225A1F002D532F /* Project object */;
 }
