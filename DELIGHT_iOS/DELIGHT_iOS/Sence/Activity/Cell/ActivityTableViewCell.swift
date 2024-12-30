@@ -7,9 +7,9 @@
 
 import UIKit
 
-class TransactionTableViewCell: UITableViewCell {
+class ActivityTableViewCell: UITableViewCell {
     // MARK: - Property
-    static let identifier = "TransactionTableViewCell"
+    static let identifier = "ActivityTableViewCell"
     
     private let activityImageView: UIImageView = {
         let imageView = UIImageView()
@@ -72,7 +72,7 @@ class TransactionTableViewCell: UITableViewCell {
     
     private func setUI() {
         self.selectionStyle = .none
-        self.contentView.backgroundColor = .white
+        self.backgroundColor = .white
         
         [self.activityImageView, self.nameLabel, self.typeLabel, self.amountLabel, self.dateLabel].forEach {
             self.contentView.addSubview($0)

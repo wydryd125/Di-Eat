@@ -1,5 +1,12 @@
 import UIKit
+import Combine
 import SnapKit
+
+enum TransactionType: Int {
+    case all = 0
+    case expense
+    case income
+}
 
 class ActivityView: BaseView {
     // MARK: - Property
@@ -7,6 +14,7 @@ class ActivityView: BaseView {
         let view = UIView()
         let label = UILabel()
         label.text = "Activity"
+        label.textColor = .black
         label.font = .poppins(ofSize: 24, weight: .bold)
         
         view.addSubview(label)
@@ -25,7 +33,6 @@ class ActivityView: BaseView {
     
     let chartView: DelightChartView = {
         let chartView = DelightChartView()
-        chartView.backgroundColor = .lightGray
         return chartView
     }()
     
@@ -33,6 +40,7 @@ class ActivityView: BaseView {
         let label = UILabel()
         label.text = "Recent Transactions"
         label.font = .poppins(ofSize: 18, weight: .medium)
+        label.textColor = .black
         return label
     }()
     
@@ -49,6 +57,7 @@ class ActivityView: BaseView {
         let button = UIButton.createCustomButton(title: "All",
                                                  font: .poppins(ofSize: 16, weight: .medium),
                                                  titleColor: UIColor(hexString: "#363062"))
+        button.tag = TransactionType.all.rawValue
         return button
     }()
     
@@ -56,6 +65,7 @@ class ActivityView: BaseView {
         let button = UIButton.createCustomButton(title: "Expense",
                                                  font: .poppins(ofSize: 16, weight: .medium),
                                                  titleColor: UIColor(hexString: "#BDBDBD"))
+        button.tag = TransactionType.expense.rawValue
         return button
     }()
     
@@ -63,6 +73,7 @@ class ActivityView: BaseView {
         let button = UIButton.createCustomButton(title: "Income",
                                                  font: .poppins(ofSize: 16, weight: .medium),
                                                  titleColor: UIColor(hexString: "#BDBDBD"))
+        button.tag = TransactionType.income.rawValue
         return button
     }()
     
@@ -74,19 +85,62 @@ class ActivityView: BaseView {
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(TransactionTableViewCell.self, forCellReuseIdentifier: TransactionTableViewCell.identifier)
+        tableView.register(ActivityTableViewCell.self, forCellReuseIdentifier: ActivityTableViewCell.identifier)
         return tableView
     }()
+    
+    @Published var isTransactionType = TransactionType.all
+    private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Life Cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUI()
         setConstraints()
+        bindButton()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func bindButton() {
+        [self.allButton, self.expenseButton, self.incomeButton].forEach {
+            $0.throttleTapPublisher()
+                .map { button in
+                    return button.tag
+                }
+                .sink { [weak self] tag in
+                    guard let self = self else { return }
+                    self.isTransactionType = TransactionType(rawValue: tag) ?? .all
+                    self.updateFilterButton(type: self.isTransactionType)
+                }
+                .store(in: &cancellables)
+        }
+    }
+    
+    private func updateFilterButton(type: TransactionType) {
+        [self.allButton, self.expenseButton, self.incomeButton].enumerated().forEach { idx, button in
+            let title: String
+            switch idx {
+            case TransactionType.all.rawValue:
+                title = "All"
+            case TransactionType.expense.rawValue:
+                title = "Expense"
+            case TransactionType.income.rawValue:
+                title = "Income"
+            default:
+                title = ""
+            }
+            
+            let fontColor = (type.rawValue == idx) ? "#363062" : "#BDBDBD"
+            
+            var attString = AttributedString(title)
+            attString.font = .poppins(ofSize: 16, weight: .medium)
+            attString.foregroundColor = UIColor(hexString: fontColor)
+            
+            button.configuration?.attributedTitle = attString
+        }
     }
     
     private func setUI() {

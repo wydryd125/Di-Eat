@@ -20,7 +20,8 @@
 		095B5E2D2D22A6AA00FCEF62 /* DelightChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B5E2C2D22A6AA00FCEF62 /* DelightChartView.swift */; };
 		095B5E2F2D22A8ED00FCEF62 /* DelightSwitchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B5E2E2D22A8ED00FCEF62 /* DelightSwitchButton.swift */; };
 		095B5E322D22B28000FCEF62 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 095B5E312D22B28000FCEF62 /* DGCharts */; };
-		095B5E352D22BEC900FCEF62 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B5E342D22BEC800FCEF62 /* TransactionTableViewCell.swift */; };
+		095B5E352D22BEC900FCEF62 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B5E342D22BEC800FCEF62 /* ActivityTableViewCell.swift */; };
+		09B48D662D22D97900A12C72 /* Extension+UIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B48D652D22D97900A12C72 /* Extension+UIControl.swift */; };
 		09EDE0FB2D22CCB400AD7149 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09EDE0FA2D22CCB300AD7149 /* Poppins-Bold.ttf */; };
 		09EDE0FD2D22D09900AD7149 /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EDE0FC2D22D09900AD7149 /* Extension+UIButton.swift */; };
 		09F3C4FF2D225A1F002D532F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F3C4FE2D225A1F002D532F /* AppDelegate.swift */; };
@@ -61,7 +62,8 @@
 		095B5E252D2283D000FCEF62 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		095B5E2C2D22A6AA00FCEF62 /* DelightChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelightChartView.swift; sourceTree = "<group>"; };
 		095B5E2E2D22A8ED00FCEF62 /* DelightSwitchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelightSwitchButton.swift; sourceTree = "<group>"; };
-		095B5E342D22BEC800FCEF62 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		095B5E342D22BEC800FCEF62 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
+		09B48D652D22D97900A12C72 /* Extension+UIControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIControl.swift"; sourceTree = "<group>"; };
 		09EDE0FA2D22CCB300AD7149 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		09EDE0FC2D22D09900AD7149 /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
 		09F3C4FB2D225A1F002D532F /* DELIGHT_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DELIGHT_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +147,7 @@
 				095B5E1B2D2282E000FCEF62 /* Extension+UIColor.swift */,
 				095B5E1C2D2282E000FCEF62 /* Extension+UIFont.swift */,
 				09EDE0FC2D22D09900AD7149 /* Extension+UIButton.swift */,
+				09B48D652D22D97900A12C72 /* Extension+UIControl.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -182,7 +185,7 @@
 		095B5E332D22BE8B00FCEF62 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				095B5E342D22BEC800FCEF62 /* TransactionTableViewCell.swift */,
+				095B5E342D22BEC800FCEF62 /* ActivityTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -382,12 +385,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				09F3C5032D225A1F002D532F /* ActivityViewController.swift in Sources */,
-				095B5E352D22BEC900FCEF62 /* TransactionTableViewCell.swift in Sources */,
+				095B5E352D22BEC900FCEF62 /* ActivityTableViewCell.swift in Sources */,
 				095B5E2F2D22A8ED00FCEF62 /* DelightSwitchButton.swift in Sources */,
 				095B5E202D2282FD00FCEF62 /* DelightTabBar.swift in Sources */,
 				09F3C4FF2D225A1F002D532F /* AppDelegate.swift in Sources */,
 				09EDE0FD2D22D09900AD7149 /* Extension+UIButton.swift in Sources */,
 				095B5E1E2D2282E000FCEF62 /* Extension+UIFont.swift in Sources */,
+				09B48D662D22D97900A12C72 /* Extension+UIControl.swift in Sources */,
 				095B5E242D22838900FCEF62 /* BaseView.swift in Sources */,
 				095B5E262D2283D000FCEF62 /* ActivityView.swift in Sources */,
 				095B5E1D2D2282E000FCEF62 /* Extension+UIColor.swift in Sources */,

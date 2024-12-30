@@ -10,7 +10,7 @@ import UIKit
 extension UIButton {
     static func createCustomButton(title: String,
                                    font: UIFont,
-                                   titleColor: UIColor,
+                                   titleColor: UIColor = .black,
                                    backgroundColor: UIColor = .white,
                                    cornerRadius: CGFloat = 0,
                                    contentInsets: NSDirectionalEdgeInsets = .zero) -> UIButton {

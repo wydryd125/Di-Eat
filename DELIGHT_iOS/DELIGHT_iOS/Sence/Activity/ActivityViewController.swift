@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import Combine
 
 class ActivityViewController: BaseViewController, UITableViewDelegate {
     private let rootView = ActivityView()
     private var dataSource: UITableViewDiffableDataSource<Int, UUID>!
+    private var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,12 +38,8 @@ class ActivityViewController: BaseViewController, UITableViewDelegate {
         self.dataSource = UITableViewDiffableDataSource<Int, UUID>(
             tableView: self.rootView.tableView,
             cellProvider: { tableView, indexPath, data in
-                guard let cell = tableView.dequeueReusableCell(
-                    withIdentifier: TransactionTableViewCell.identifier,
-                    for: indexPath
-                ) as? TransactionTableViewCell else {
-                    fatalError("Unable to dequeue TransactionTableViewCell")
-                }
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: ActivityTableViewCell.identifier,
+                                                               for: indexPath) as? ActivityTableViewCell else { fatalError() }
                 cell.drawCell(data: "Sample Data")
                 return cell
             })
