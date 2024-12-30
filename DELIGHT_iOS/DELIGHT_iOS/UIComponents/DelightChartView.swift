@@ -20,6 +20,12 @@ class DelightChartView: UIView {
     let incomeChartView = LineChartView()
     let expenceChartView = LineChartView()
     
+    let dateStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        return stackView
+    }()
+    
     var priceData: [Double]! = [100, 345, 20, 120, 90, 300, 450, 220, 120]
     var currentPosition: Double = 0.0
     var pointer = DelightChartPointer()
@@ -30,7 +36,7 @@ class DelightChartView: UIView {
         self.setContributes()
         
         self.setIncomeChartView(chartPrices: self.priceData)
-        self.setExpenceChartView(chartPrices: self.priceData)
+        self.setExpenceChartView(chartPrices: self.priceData.reversed())
         self.setIncomeChartView()
         self.setExpenceChartView()
         
@@ -62,7 +68,7 @@ class DelightChartView: UIView {
         dataSet.drawValuesEnabled = false // 값 비활성화
         
         let gradientColors = [
-            UIColor(hexString: "#36306221").withAlphaComponent(0.3).cgColor,
+            UIColor(hexString: "#36306221").withAlphaComponent(0.2).cgColor,
             UIColor.clear.cgColor
         ]
         let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(),
@@ -95,7 +101,7 @@ class DelightChartView: UIView {
         dataSet.drawValuesEnabled = false // 값 비활성화
         
         let gradientColors = [
-            UIColor(hexString: "#5BDAA4").withAlphaComponent(0.3).cgColor,
+            UIColor(hexString: "#5BDAA4").withAlphaComponent(0.6).cgColor,
             UIColor.clear.cgColor
         ]
         let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(),
@@ -179,18 +185,21 @@ class DelightChartView: UIView {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 9
-        stackView.alignment = .leading
+        stackView.alignment = .center
         
         let view = UIView()
         view.backgroundColor = color
-        view.frame = CGRect(x: 0, y: 0, width: 32, height: 4)
+        stackView.addArrangedSubview(view)
+        view.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.width.equalTo(32)
+            make.height.equalTo(8)
+        }
         
         let label = UILabel()
         label.text = title
         label.font = .poppins(ofSize: 12, weight: .light)
         label.textColor = .black
-        
-        stackView.addArrangedSubview(view)
         stackView.addArrangedSubview(label)
         
         return stackView
@@ -204,26 +213,44 @@ class DelightChartView: UIView {
             self.legendStackView.addArrangedSubview($0)
         }
         
-        [self.legendStackView, self.incomeChartView, self.expenceChartView].forEach {
+        let startLabel = UILabel()
+        startLabel.text = "YYYY.MM.DD"
+        startLabel.font = .poppins(ofSize: 16, weight: .regular)
+        startLabel.textColor = UIColor(hexString: "#BDBDBD")
+        
+        let endLabel = UILabel()
+        endLabel.text = "YYYY.MM.DDD"
+        endLabel.font = .poppins(ofSize: 16, weight: .regular)
+        endLabel.textColor = UIColor(hexString: "#BDBDBD")
+        
+        [startLabel, endLabel].forEach {
+            self.dateStackView.addArrangedSubview($0)
+        }
+        
+        [self.legendStackView, self.incomeChartView, self.expenceChartView, self.dateStackView].forEach {
             self.addSubview($0)
         }
     }
     
     private func setContributes() {
         self.legendStackView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
+            make.top.leading.equalToSuperview()
             make.height.equalTo(22)
         }
         
         self.incomeChartView.snp.makeConstraints { make in
-            make.top.equalTo(self.legendStackView.snp.bottom).offset(10)
             make.leading.trailing.equalToSuperview()
-            make.height.equalTo(168)
+            make.bottom.equalTo(self.dateStackView.snp.top)
+            make.height.equalTo(161)
         }
         
         self.expenceChartView.snp.makeConstraints { make in
+            make.edges.equalTo(self.incomeChartView)
+        }
+        
+        self.dateStackView.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview()
-            make.height.equalTo(64)
+            make.height.equalTo(24)
         }
     }
 }
