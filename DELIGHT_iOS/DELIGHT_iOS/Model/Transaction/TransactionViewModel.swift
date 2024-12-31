@@ -13,6 +13,7 @@ class TransactionViewModel: ObservableObject {
     @Published var transactions: [TransactionData]?
     @Published var chartData: [TransactionData]?
     @Published var latestTransactions: [TransactionData]?
+    @Published var recentData: TransactionData? = nil
     
     @Published var duration: DurationType = .week {
         didSet {
@@ -47,6 +48,7 @@ class TransactionViewModel: ObservableObject {
                 self.transactions = transactions
                 self.updateLatestTransactions()
                 self.updateChartTransactions(duration: .week)
+                self.updateRecentData()
             })
             .store(in: &cancellables)
     }
@@ -56,6 +58,18 @@ class TransactionViewModel: ObservableObject {
         self.latestTransactions = self.getLatestTransactions(type: self.type, transactions: transactions)
     }
     
+    // 최근 transaction 데이터가 있는지 확인(for toast message)
+    private func updateRecentData() {
+        let curDate = Date().addingTimeInterval(-120)
+        guard let transactionDate = self.transactions?.last,
+              let tranDate = transactionDate.timestamp.convertDate() else { return }
+        
+        if tranDate >= curDate && tranDate <= Date() {
+            self.recentData = transactionDate
+        }
+    }
+    
+    // 타입에 따른 최근 데이터
     private func getLatestTransactions(type: TransactionType, transactions: [TransactionData]) -> [TransactionData]? {
         let latestData = Array(transactions.reversed().prefix(20))
         switch type {
@@ -68,6 +82,7 @@ class TransactionViewModel: ObservableObject {
         }
     }
     
+    // 차트 데이트 week or month
     func updateChartTransactions(duration: DurationType) {
         guard let transactions = self.transactions else { return }
         switch duration {

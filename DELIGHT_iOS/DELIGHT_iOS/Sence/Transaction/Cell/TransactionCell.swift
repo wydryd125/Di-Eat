@@ -90,7 +90,7 @@ class TransactionCell: UITableViewCell {
         self.nameLabel.snp.makeConstraints { make in
             make.leading.equalTo(self.transactionCellImageView.snp.trailing).offset(20)
             make.bottom.equalTo(self.transactionCellImageView.snp.centerY)
-            make.width.greaterThanOrEqualTo((self.frame.width - 127) / 0.6)
+            make.width.lessThanOrEqualTo(self.contentView.snp.width).multipliedBy(0.75).offset(-127)
         }
         
         self.amountLabel.snp.makeConstraints { make in
@@ -99,13 +99,13 @@ class TransactionCell: UITableViewCell {
         }
         
         self.typeLabel.snp.makeConstraints { make in
-            make.leading.equalTo(self.nameLabel)
             make.top.equalTo(self.transactionCellImageView.snp.centerY)
+            make.leading.equalTo(self.nameLabel)
         }
         
         self.dateLabel.snp.makeConstraints { make in
-            make.trailing.equalTo(self.amountLabel)
             make.top.equalTo(self.typeLabel)
+            make.trailing.equalTo(self.amountLabel)
         }
     }
 }

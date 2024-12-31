@@ -4,19 +4,9 @@ import SnapKit
 
 class TransactionView: BaseView {
     // MARK: - Property
-    private let headerView: UIView = {
+    let headerView: UIView = {
         let view = UIView()
-        let label = UILabel()
-        label.text = "Transaction"
-        label.textColor = .black
-        label.font = .poppins(ofSize: 24, weight: .bold)
-        
-        view.addSubview(label)
-        label.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(22)
-            make.leading.trailing.equalToSuperview().inset(28)
-            make.bottom.equalToSuperview().inset(20)
-        }
+        view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 469)
         return view
     }()
     
@@ -88,6 +78,7 @@ class TransactionView: BaseView {
     // MARK: - Life Cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
+       
         self.setUI()
         self.setConstraints()
     }
@@ -96,14 +87,18 @@ class TransactionView: BaseView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - UI
     private func setUI() {
         [self.allButton, self.expenseButton, self.incomeButton].forEach {
             self.filterStackView.addArrangedSubview($0)
         }
 
-        [self.headerView, self.switchButton, self.chartView, self.label, self.filterStackView, self.tableView].forEach {
-            self.addSubview($0)
+        [self.switchButton, self.chartView, self.label, self.filterStackView].forEach {
+            self.headerView.addSubview($0)
         }
+        
+        self.tableView.tableHeaderView = self.headerView
+        self.addSubview(self.tableView)
     }
     
     func updateFilterButton(type: TransactionType) {
@@ -131,12 +126,8 @@ class TransactionView: BaseView {
     }
     
     private func setConstraints() {
-        self.headerView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
-        }
-        
         self.switchButton.snp.makeConstraints { make in
-            make.top.equalTo(self.headerView.snp.bottom)
+            make.top.equalToSuperview().inset(20)
             make.leading.equalToSuperview().inset(28)
             make.height.equalTo(38)
         }
@@ -160,8 +151,12 @@ class TransactionView: BaseView {
         }
         
         self.tableView.snp.makeConstraints { make in
-            make.top.equalTo(self.filterStackView.snp.bottom).offset(20)
-            make.leading.trailing.bottom.equalToSuperview()
+            make.edges.equalToSuperview()
+        }
+        
+        self.headerView.snp.makeConstraints { make in
+            make.height.greaterThanOrEqualTo(469)
+            make.width.equalTo(self.tableView)
         }
     }
 }

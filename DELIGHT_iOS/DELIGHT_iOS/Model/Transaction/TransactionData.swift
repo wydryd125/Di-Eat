@@ -24,18 +24,6 @@ struct TransactionData: Codable, Hashable {
     var timestamp: String
     var type: String
 
-    // Hashable 프로토콜을 준수하기 위한 구현
-    static func == (lhs: TransactionData, rhs: TransactionData) -> Bool {
-        return lhs.amount == rhs.amount && lhs.name == rhs.name && lhs.timestamp == rhs.timestamp && lhs.type == rhs.type
-    }
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(amount)
-        hasher.combine(name)
-        hasher.combine(timestamp)
-        hasher.combine(type)
-    }
-    
     func getTransactionData() -> String {
         return timestamp.formattedFullDateStr()
     }

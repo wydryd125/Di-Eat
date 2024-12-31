@@ -9,6 +9,7 @@ import UIKit
 import Combine
 
 class TransactionViewController: BaseViewController, UITableViewDelegate {
+    // MARK: - Property
     private let rootView = TransactionView()
     private var dataSource: UITableViewDiffableDataSource<Int, TransactionData>!
     
@@ -16,9 +17,10 @@ class TransactionViewController: BaseViewController, UITableViewDelegate {
     @Published var type = TransactionType.all
     private var cancellables = Set<AnyCancellable>()
     
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.configure()
         self.viewModel.bind()
         self.bindViewModel()
@@ -38,6 +40,7 @@ class TransactionViewController: BaseViewController, UITableViewDelegate {
         
         // chartView 바인딩
         self.viewModel.$chartData
+            .compactMap { $0 }
             .sink { [weak self] data in
                 guard let self = self else { return }
                 DispatchQueue.main.async {
@@ -53,6 +56,14 @@ class TransactionViewController: BaseViewController, UITableViewDelegate {
                 DispatchQueue.main.async {
                     self.updateTableView()
                 }
+            }
+            .store(in: &cancellables)
+        
+        self.viewModel.$recentData
+            .compactMap { $0 }
+            .sink { [weak self] data in
+                guard let self = self else { return }
+                self.showToast(message: data)
             }
             .store(in: &cancellables)
     }
@@ -87,8 +98,24 @@ class TransactionViewController: BaseViewController, UITableViewDelegate {
         if isLoading {
             print("Loading...")
         } else {
-            print("Loading complete")
+            print("Loading complete!!!")
             self.updateTableView()
+        }
+    }
+
+    private func updateTableView() {
+        guard let latestTransactions = self.viewModel.latestTransactions else { return }
+        let currentOffset = self.rootView.tableView.contentOffset
+        var snapshot = NSDiffableDataSourceSnapshot<Int, TransactionData>()
+        snapshot.appendSections([0])
+        snapshot.appendItems(latestTransactions)
+        
+        self.dataSource.apply(snapshot, animatingDifferences: true) { [weak self] in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                self.rootView.tableView.setContentOffset(currentOffset, animated: false)
+            }
         }
     }
     
@@ -100,15 +127,6 @@ class TransactionViewController: BaseViewController, UITableViewDelegate {
             cell.drawCell(data: transaction)
             return cell
         }
-    }
-
-    private func updateTableView() {
-        guard let latestTransactions = self.viewModel.latestTransactions else { return }
-        
-        var snapshot = NSDiffableDataSourceSnapshot<Int, TransactionData>()
-        snapshot.appendSections([0])
-        snapshot.appendItems(latestTransactions)
-        self.dataSource.apply(snapshot, animatingDifferences: true)
     }
 
     private func configure() {

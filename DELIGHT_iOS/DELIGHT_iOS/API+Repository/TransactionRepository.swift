@@ -43,6 +43,7 @@ final class TransactionRepository {
         .eraseToAnyPublisher()
     }
     
+    // 데이터가 많아 한달치만 뽑아 사용
     private func transactionsToLastMonth(transactions: [TransactionData]) -> [TransactionData] {
         let today = Date()
         let oneMonthAgo = Calendar.current.date(byAdding: .month, value: -1, to: today)!

@@ -28,10 +28,9 @@
 		097425F72D23DC54000C998A /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 097425F62D23DC54000C998A /* DGCharts */; };
 		097425F92D243093000C998A /* Extension+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097425F82D243093000C998A /* Extension+Array.swift */; };
 		0984CC782D232236006F7957 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0984CC772D232236006F7957 /* BaseViewController.swift */; };
-		0984CC7A2D232889006F7957 /* TransactionChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0984CC792D232889006F7957 /* TransactionChartCell.swift */; };
-		0984CC7C2D232C6A006F7957 /* TransactionFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0984CC7B2D232C6A006F7957 /* TransactionFilterCell.swift */; };
 		09B48D662D22D97900A12C72 /* Extension+UIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B48D652D22D97900A12C72 /* Extension+UIControl.swift */; };
 		09CE04BE2D23A5A80056B1CB /* transacions.json in Resources */ = {isa = PBXBuildFile; fileRef = 09CE04BD2D23A5A80056B1CB /* transacions.json */; };
+		09DC5D122D245C1000B54A04 /* DelightToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC5D112D245C1000B54A04 /* DelightToastView.swift */; };
 		09EDE0FB2D22CCB400AD7149 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09EDE0FA2D22CCB300AD7149 /* Poppins-Bold.ttf */; };
 		09EDE0FD2D22D09900AD7149 /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EDE0FC2D22D09900AD7149 /* Extension+UIButton.swift */; };
 		09F3C4FF2D225A1F002D532F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F3C4FE2D225A1F002D532F /* AppDelegate.swift */; };
@@ -79,10 +78,9 @@
 		097425E02D23C2C4000C998A /* TransactionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionData.swift; sourceTree = "<group>"; };
 		097425F82D243093000C998A /* Extension+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Array.swift"; sourceTree = "<group>"; };
 		0984CC772D232236006F7957 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		0984CC792D232889006F7957 /* TransactionChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionChartCell.swift; sourceTree = "<group>"; };
-		0984CC7B2D232C6A006F7957 /* TransactionFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionFilterCell.swift; sourceTree = "<group>"; };
 		09B48D652D22D97900A12C72 /* Extension+UIControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIControl.swift"; sourceTree = "<group>"; };
 		09CE04BD2D23A5A80056B1CB /* transacions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = transacions.json; sourceTree = "<group>"; };
+		09DC5D112D245C1000B54A04 /* DelightToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelightToastView.swift; sourceTree = "<group>"; };
 		09EDE0FA2D22CCB300AD7149 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		09EDE0FC2D22D09900AD7149 /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
 		09F3C4FB2D225A1F002D532F /* DELIGHT_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DELIGHT_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +130,7 @@
 				095B5E122D22824C00FCEF62 /* Fonts */,
 				095B5E2C2D22A6AA00FCEF62 /* DelightChartView.swift */,
 				095B5E2E2D22A8ED00FCEF62 /* DelightSwitchButton.swift */,
+				09DC5D112D245C1000B54A04 /* DelightToastView.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -141,6 +140,7 @@
 			children = (
 				09F3C4FE2D225A1F002D532F /* AppDelegate.swift */,
 				095B5E192D22828B00FCEF62 /* TabBar & Base */,
+				09DC5D132D24674000B54A04 /* Base */,
 				095B5E1A2D22829600FCEF62 /* Transaction */,
 			);
 			path = Sence;
@@ -149,7 +149,7 @@
 		095B5E0F2D2281F500FCEF62 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				09CE04BC2D239EDC0056B1CB /* Activity */,
+				09CE04BC2D239EDC0056B1CB /* Transaction */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -192,8 +192,6 @@
 			children = (
 				095B5E1F2D2282FD00FCEF62 /* DelightTabBar.swift */,
 				095B5E212D22836F00FCEF62 /* DelightTabBarController.swift */,
-				095B5E232D22838900FCEF62 /* BaseView.swift */,
-				0984CC772D232236006F7957 /* BaseViewController.swift */,
 			);
 			path = "TabBar & Base";
 			sourceTree = "<group>";
@@ -211,8 +209,6 @@
 		095B5E332D22BE8B00FCEF62 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				0984CC792D232889006F7957 /* TransactionChartCell.swift */,
-				0984CC7B2D232C6A006F7957 /* TransactionFilterCell.swift */,
 				095B5E342D22BEC800FCEF62 /* TransactionCell.swift */,
 			);
 			path = Cell;
@@ -226,13 +222,22 @@
 			path = Json;
 			sourceTree = "<group>";
 		};
-		09CE04BC2D239EDC0056B1CB /* Activity */ = {
+		09CE04BC2D239EDC0056B1CB /* Transaction */ = {
 			isa = PBXGroup;
 			children = (
 				0930AAA22D239A2100CEABB4 /* TransactionViewModel.swift */,
 				097425E02D23C2C4000C998A /* TransactionData.swift */,
 			);
-			path = Activity;
+			path = Transaction;
+			sourceTree = "<group>";
+		};
+		09DC5D132D24674000B54A04 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				095B5E232D22838900FCEF62 /* BaseView.swift */,
+				0984CC772D232236006F7957 /* BaseViewController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		09F3C4F22D225A1F002D532F = {
@@ -441,16 +446,15 @@
 				09F3C4FF2D225A1F002D532F /* AppDelegate.swift in Sources */,
 				097425DF2D23BF16000C998A /* Extension+Date.swift in Sources */,
 				0984CC782D232236006F7957 /* BaseViewController.swift in Sources */,
-				0984CC7C2D232C6A006F7957 /* TransactionFilterCell.swift in Sources */,
 				0930AAA32D239A2100CEABB4 /* TransactionViewModel.swift in Sources */,
 				09EDE0FD2D22D09900AD7149 /* Extension+UIButton.swift in Sources */,
 				096ED8122D2339A400D5C8B8 /* TransactionRepository.swift in Sources */,
 				095B5E1E2D2282E000FCEF62 /* Extension+UIFont.swift in Sources */,
 				097425F92D243093000C998A /* Extension+Array.swift in Sources */,
-				0984CC7A2D232889006F7957 /* TransactionChartCell.swift in Sources */,
 				09B48D662D22D97900A12C72 /* Extension+UIControl.swift in Sources */,
 				095B5E242D22838900FCEF62 /* BaseView.swift in Sources */,
 				095B5E262D2283D000FCEF62 /* TransactionView.swift in Sources */,
+				09DC5D122D245C1000B54A04 /* DelightToastView.swift in Sources */,
 				095B5E1D2D2282E000FCEF62 /* Extension+UIColor.swift in Sources */,
 				095B5E2D2D22A6AA00FCEF62 /* DelightChartView.swift in Sources */,
 				095B5E222D22836F00FCEF62 /* DelightTabBarController.swift in Sources */,

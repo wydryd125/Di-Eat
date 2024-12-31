@@ -37,6 +37,7 @@ class DelightTabBarViewModel {
 }
 
 class DelightTabBarView: UIView {
+    // MARK: - Property
     var tabs: [Tab]
     
     @Published var selectedTab: Tab = .transaction
@@ -50,6 +51,7 @@ class DelightTabBarView: UIView {
         self.setConstraint()
     }
     
+    // MARK: - Life Cycle
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -77,7 +79,7 @@ class DelightTabBarView: UIView {
             tabStackView.addArrangedSubview(button)
             button.snp.makeConstraints { make in
                 make.width.equalTo((UIScreen.main.bounds.width - 56) / 4)
-                make.height.equalTo(80)
+                make.height.equalToSuperview()
             }
             
             let imageView = UIImageView()
