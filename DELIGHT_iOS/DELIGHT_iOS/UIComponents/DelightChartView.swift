@@ -20,168 +20,136 @@ class DelightChartView: UIView {
     let incomeChartView = LineChartView()
     let expenceChartView = LineChartView()
     
+    let startLabel: UILabel = {
+        let label = UILabel()
+        label.font = .poppins(ofSize: 16, weight: .regular)
+        label.textColor = UIColor(hexString: "#BDBDBD")
+        return label
+    }()
+    
+    let endLabel: UILabel = {
+        let label = UILabel()
+        label.font = .poppins(ofSize: 16, weight: .regular)
+        label.textColor = UIColor(hexString: "#BDBDBD")
+        return label
+    }()
+    
     let dateStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         return stackView
     }()
     
-    var priceData: [Double]! = [100, 345, 20, 120, 90, 300, 450, 220, 120]
-    var currentPosition: Double = 0.0
-    var pointer = DelightChartPointer()
-    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         self.setUI()
         self.setContributes()
         
-        self.setIncomeChartView(chartPrices: self.priceData)
-        self.setExpenceChartView(chartPrices: self.priceData.reversed())
         self.setIncomeChartView()
         self.setExpenceChartView()
-        
-        self.setPointer()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    override func gestureRecognizer(_ gestureRecognizer: NSUIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: NSUIGestureRecognizer) -> Bool {
-//        return true
-//    }
-
-    func setIncomeChartView(chartPrices: [Double]) {
+    func updateChartView(data: [TransactionData]?) {
+        self.resetCharts()
+        let incomeData = data?
+            .filter { Double($0.amount) ?? 0 > 0 }
+            .compactMap { Double($0.amount) }
+            .sampled(for: 10)
+        
+        let expenseData = data?
+            .filter { Double($0.amount) ?? 0 < 0 }
+            .compactMap { Double($0.amount) }
+            .sampled(for: 10)
+        
+        self.updateIncomeChartView(data: Array(incomeData ?? []))
+        self.updateExpenceChartView(data: Array(expenseData ?? []))
+        
+        self.startLabel.text = data?.first?.timestamp.formattedDateStr()
+        self.endLabel.text = data?.last?.timestamp.formattedDateStr()
+    }
+    
+    func resetCharts() {
+        self.incomeChartView.data = nil
+        self.expenceChartView.data = nil
+        self.incomeChartView.notifyDataSetChanged()
+        self.expenceChartView.notifyDataSetChanged()
+    }
+    
+    private func updateIncomeChartView(data: [Double]) {
         var chartEntries: [ChartDataEntry] = []
-        for (index, price) in chartPrices.enumerated() {
+        for (index, price) in data.enumerated() {
             chartEntries.append(ChartDataEntry(x: Double(index), y: price))
         }
         
         let dataSet = LineChartDataSet(entries: chartEntries)
-        dataSet.mode = .cubicBezier // 곡선 타입
-        dataSet.drawCirclesEnabled = false // 데이터 점 표시 여부
-        dataSet.lineWidth = 2.0 // 라인 두께
+        dataSet.mode = .cubicBezier
+        dataSet.drawCirclesEnabled = false
+        dataSet.lineWidth = 2.0
         dataSet.setColor(UIColor(hexString: "#363062"))
-        dataSet.fillColor = UIColor(hexString: "#363062").withAlphaComponent(0.3)
-        dataSet.drawFilledEnabled = true // 아래 영역 채우기 활성화
-        dataSet.drawHorizontalHighlightIndicatorEnabled = false // 수평 강조선 비활성화
-        dataSet.drawValuesEnabled = false // 값 비활성화
+        dataSet.drawHorizontalHighlightIndicatorEnabled = false
+        dataSet.drawValuesEnabled = false
         
-        let gradientColors = [
-            UIColor(hexString: "#36306221").withAlphaComponent(0.2).cgColor,
-            UIColor.clear.cgColor
-        ]
-        let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(),
-                                  colors: gradientColors as CFArray,
-                                  locations: [1.0, 0.0])!
-        
-        dataSet.fill = LinearGradientFill(gradient: gradient, angle: 90) 
-        dataSet.drawFilledEnabled = true
-        
-
         let lineChartData = LineChartData(dataSet: dataSet)
         self.incomeChartView.data = lineChartData
         self.incomeChartView.animate(xAxisDuration: 0.8, easingOption: .easeInBack)
     }
     
-    func setExpenceChartView(chartPrices: [Double]) {
+    private func updateExpenceChartView(data: [Double]) {
         var chartEntries: [ChartDataEntry] = []
-        for (index, price) in chartPrices.enumerated() {
+        for (index, price) in data.enumerated() {
             chartEntries.append(ChartDataEntry(x: Double(index), y: price))
         }
         
         let dataSet = LineChartDataSet(entries: chartEntries)
-        dataSet.mode = .cubicBezier // 곡선 타입
-        dataSet.drawCirclesEnabled = false // 데이터 점 표시 여부
-        dataSet.lineWidth = 2.0 // 라인 두께
+        dataSet.mode = .cubicBezier
+        dataSet.drawCirclesEnabled = false
+        dataSet.lineWidth = 2.0
         dataSet.setColor(UIColor(hexString: "#5BDAA4"))
-        dataSet.fillColor = UIColor(hexString: "#5BDAA4").withAlphaComponent(0.3)
-        dataSet.drawFilledEnabled = true // 아래 영역 채우기 활성화
-        dataSet.drawHorizontalHighlightIndicatorEnabled = false // 수평 강조선 비활성화
-        dataSet.drawValuesEnabled = false // 값 비활성화
-        
-        let gradientColors = [
-            UIColor(hexString: "#5BDAA4").withAlphaComponent(0.6).cgColor,
-            UIColor.clear.cgColor
-        ]
-        let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(),
-                                  colors: gradientColors as CFArray,
-                                  locations: [1.0, 0.0])!
-        
-        dataSet.fill = LinearGradientFill(gradient: gradient, angle: 90)
-        dataSet.drawFilledEnabled = true
+        dataSet.drawHorizontalHighlightIndicatorEnabled = false
+        dataSet.drawValuesEnabled = false
         
         let lineChartData = LineChartData(dataSet: dataSet)
         self.expenceChartView.data = lineChartData
         self.expenceChartView.animate(xAxisDuration: 0.8, easingOption: .easeInBack)
     }
     
-    
-    func setIncomeChartView() {
-        // 범례(legend)를 숨깁니다.
+    private func setIncomeChartView() {
         self.incomeChartView.legend.enabled = false
-        // X축을 비활성화하여 축 라벨과 선을 숨깁니다.
         self.incomeChartView.xAxis.enabled = false
-        // 왼쪽 Y축을 비활성화하여 축 라벨과 선을 숨깁니다.
         self.incomeChartView.leftAxis.enabled = false
-        // 오른쪽 Y축을 비활성화하여 축 라벨과 선을 숨깁니다.
         self.incomeChartView.rightAxis.enabled = false
-        // X축 확대/축소를 비활성화합니다.
         self.incomeChartView.scaleXEnabled = false
-        // Y축 확대/축소를 비활성화합니다.
         self.incomeChartView.scaleYEnabled = false
-        // 차트 배경에 격자(Grid)를 비활성화합니다.
         self.incomeChartView.drawGridBackgroundEnabled = false
-        // 차트 외곽의 경계선을 숨깁니다.
         self.incomeChartView.drawBordersEnabled = false
-        // 차트 우측에 여백을 추가하여 데이터가 차트 끝에 붙지 않도록 설정합니다.
         self.incomeChartView.extraRightOffset = 12
-        // 차트의 데이터가 차트 뷰의 경계를 넘어가더라도 클리핑하지 않습니다.
         self.incomeChartView.clipsToBounds = false
-        // 차트의 데이터 점이 차트 뷰의 경계를 넘어가더라도 클리핑하지 않습니다.
         self.incomeChartView.clipDataToContentEnabled = false
-        // 차트의 값(데이터 라벨)이 차트 뷰의 경계를 넘어가더라도 클리핑하지 않습니다.
         self.incomeChartView.clipValuesToContentEnabled = false
-        // 차트에 데이터가 없을 경우 표시될 기본 텍스트를 설정합니다.
         self.incomeChartView.noDataText = ""
     }
     
-    func setExpenceChartView() {
-        // 범례(legend)를 숨깁니다.
+    private func setExpenceChartView() {
         self.expenceChartView.legend.enabled = false
-        // X축을 비활성화하여 축 라벨과 선을 숨깁니다.
         self.expenceChartView.xAxis.enabled = false
-        // 왼쪽 Y축을 비활성화하여 축 라벨과 선을 숨깁니다.
         self.expenceChartView.leftAxis.enabled = false
-        // 오른쪽 Y축을 비활성화하여 축 라벨과 선을 숨깁니다.
         self.expenceChartView.rightAxis.enabled = false
-        // X축 확대/축소를 비활성화합니다.
         self.expenceChartView.scaleXEnabled = false
-        // Y축 확대/축소를 비활성화합니다.
         self.expenceChartView.scaleYEnabled = false
-        // 차트 배경에 격자(Grid)를 비활성화합니다.
         self.expenceChartView.drawGridBackgroundEnabled = false
-        // 차트 외곽의 경계선을 숨깁니다.
         self.expenceChartView.drawBordersEnabled = false
-        // 차트 우측에 여백을 추가하여 데이터가 차트 끝에 붙지 않도록 설정합니다.
         self.expenceChartView.extraRightOffset = 12
-        // 차트의 데이터가 차트 뷰의 경계를 넘어가더라도 클리핑하지 않습니다.
         self.expenceChartView.clipsToBounds = false
-        // 차트의 데이터 점이 차트 뷰의 경계를 넘어가더라도 클리핑하지 않습니다.
         self.expenceChartView.clipDataToContentEnabled = false
-        // 차트의 값(데이터 라벨)이 차트 뷰의 경계를 넘어가더라도 클리핑하지 않습니다.
         self.expenceChartView.clipValuesToContentEnabled = false
-        // 차트에 데이터가 없을 경우 표시될 기본 텍스트를 설정합니다.
         self.expenceChartView.noDataText = ""
     }
-
-    func setPointer() {
-        self.addSubview(pointer)
-        self.pointer.setColor(color: .gray)
-        self.pointer.alpha = 0
-    }
     
-    func getLegendView(title: String, color: UIColor) -> UIStackView {
+    private func getLegendView(title: String, color: UIColor) -> UIStackView {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 9
@@ -213,17 +181,7 @@ class DelightChartView: UIView {
             self.legendStackView.addArrangedSubview($0)
         }
         
-        let startLabel = UILabel()
-        startLabel.text = "YYYY.MM.DD"
-        startLabel.font = .poppins(ofSize: 16, weight: .regular)
-        startLabel.textColor = UIColor(hexString: "#BDBDBD")
-        
-        let endLabel = UILabel()
-        endLabel.text = "YYYY.MM.DDD"
-        endLabel.font = .poppins(ofSize: 16, weight: .regular)
-        endLabel.textColor = UIColor(hexString: "#BDBDBD")
-        
-        [startLabel, endLabel].forEach {
+        [self.startLabel, self.endLabel].forEach {
             self.dateStackView.addArrangedSubview($0)
         }
         
@@ -251,33 +209,6 @@ class DelightChartView: UIView {
         self.dateStackView.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview()
             make.height.equalTo(24)
-        }
-    }
-}
-
-class DelightChartPointer: UIView {
-    let view = UIView()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = .clear
-        clipsToBounds = false
-        self.view.layer.cornerRadius = 8
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    public func setColor(color: UIColor) {
-        self.view.backgroundColor = color
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.view.snp.makeConstraints { make in
-            make.size.equalTo(16)
-            make.centerX.centerY.equalToSuperview()
         }
     }
 }

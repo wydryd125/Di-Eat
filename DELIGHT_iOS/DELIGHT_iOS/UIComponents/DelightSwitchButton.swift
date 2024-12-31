@@ -29,7 +29,7 @@ class DelightSwitchButton: UIView {
         return button
     }()
     
-    @Published private var isFirstSelected = true
+    @Published var isFirstSelected = true
     private var cancellables = Set<AnyCancellable>()
     
     override init(frame: CGRect) {
