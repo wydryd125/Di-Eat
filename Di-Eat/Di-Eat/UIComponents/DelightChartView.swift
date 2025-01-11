@@ -1,6 +1,6 @@
 //
-//  DelightChartView.swift
-//  DELIGHT_iOS
+//  DiEatChartView.swift
+//  Di-Eat
 //
 //  Created by wjdyukyung on 12/30/24.
 //
@@ -8,7 +8,7 @@
 import UIKit
 import DGCharts
 
-class DelightChartView: UIView {
+class DiEatChartView: UIView {
     let legendStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -53,24 +53,24 @@ class DelightChartView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateChartView(data: [TransactionData]?) {
-        self.resetCharts()
-        let incomeData = data?
-            .filter { Double($0.amount) ?? 0 > 0 }
-            .compactMap { Double($0.amount) }
-            .sampled(for: 10)
-        
-        let expenseData = data?
-            .filter { Double($0.amount) ?? 0 < 0 }
-            .compactMap { Double($0.amount) }
-            .sampled(for: 10)
-        
-        self.updateIncomeChartView(data: Array(incomeData ?? []))
-        self.updateExpenceChartView(data: Array(expenseData ?? []))
-        
-        self.startLabel.text = data?.first?.timestamp.formattedDateStr()
-        self.endLabel.text = data?.last?.timestamp.formattedDateStr()
-    }
+//    func updateChartView(data: [TransactionData]?) {
+//        self.resetCharts()
+//        let incomeData = data?
+//            .filter { Double($0.amount) ?? 0 > 0 }
+//            .compactMap { Double($0.amount) }
+//            .sampled(for: 10)
+//        
+//        let expenseData = data?
+//            .filter { Double($0.amount) ?? 0 < 0 }
+//            .compactMap { Double($0.amount) }
+//            .sampled(for: 10)
+//        
+//        self.updateIncomeChartView(data: Array(incomeData ?? []))
+//        self.updateExpenceChartView(data: Array(expenseData ?? []))
+//        
+//        self.startLabel.text = data?.first?.timestamp.formattedDateStr()
+//        self.endLabel.text = data?.last?.timestamp.formattedDateStr()
+//    }
     
     func resetCharts() {
         self.incomeChartView.data = nil

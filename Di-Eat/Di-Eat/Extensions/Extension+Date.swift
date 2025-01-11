@@ -1,6 +1,6 @@
 //
 //  Extension+.swift
-//  DELIGHT_iOS
+//  Di-Eat
 //
 //  Created by wjdyukyung on 12/31/24.
 //

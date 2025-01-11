@@ -1,6 +1,6 @@
 //
 //  DelightToastView.swift
-//  DELIGHT_iOS
+//  Di-Eat
 //
 //  Created by wjdyukyung on 1/1/25.
 //
@@ -47,19 +47,19 @@ class DelightToastView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func showToast(message: TransactionData) {
-        self.nameLabel.text = message.name
-        self.typeLabel.text = message.type
-        self.amountLabel.text = message.getAmountString()
-        self.dateLabel.text = message.getTransactionData()
-        
-        UIView.animate(withDuration: 0.4, delay: 2, options: .curveEaseOut, animations: {
-            self.alpha = 0.0
-        }, completion: {(isCompleted) in
-            self.removeFromSuperview()
-        })
-    }
-    
+//    func showToast(message: Recipe) {
+//        self.nameLabel.text = message.name
+//        self.typeLabel.text = message.type
+//        self.amountLabel.text = message.getAmountString()
+//        self.dateLabel.text = message.getTransactionData()
+//        
+//        UIView.animate(withDuration: 0.4, delay: 2, options: .curveEaseOut, animations: {
+//            self.alpha = 0.0
+//        }, completion: {(isCompleted) in
+//            self.removeFromSuperview()
+//        })
+//    }
+//    
     private func setUI() {
         self.backgroundColor = UIColor(hexString: "#363062").withAlphaComponent(0.88)
         self.layer.cornerRadius = 8

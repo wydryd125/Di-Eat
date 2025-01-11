@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  DELIGHT_iOS
+//  Di-Eat
 //
 //  Created by wjdyukyung on 12/30/24.
 //
@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = DelightTabBarController()
+        self.window?.rootViewController = DiEatTabBarController(tab: .calorie)
         self.window?.backgroundColor = .white
         self.window?.makeKeyAndVisible()
         

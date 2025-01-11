@@ -1,6 +1,6 @@
 //
 //  BaseViewController.swift
-//  DELIGHT_iOS
+//  Di-Eat
 //
 //  Created by wjdyukyung on 12/30/24.
 //
@@ -18,15 +18,15 @@ class BaseViewController: UIViewController {
         self.view.backgroundColor = .white
     }
     
-    func showToast(message: TransactionData) {
-        let toastWidth = self.view.frame.size.width - 58
-        let toastHeight: CGFloat = 88
-        let toastY = self.view.frame.size.height - toastHeight - 40
-        let toastX: CGFloat = 29
-        
-        self.toastView.frame = CGRect(x: toastX, y: toastY, width: toastWidth, height: toastHeight)
-        self.toastView.showToast(message: message)
-        self.view.addSubview(self.toastView)
-        
-    }
+//    func showToast(message: TransactionData) {
+//        let toastWidth = self.view.frame.size.width - 58
+//        let toastHeight: CGFloat = 88
+//        let toastY = self.view.frame.size.height - toastHeight - 40
+//        let toastX: CGFloat = 29
+//        
+//        self.toastView.frame = CGRect(x: toastX, y: toastY, width: toastWidth, height: toastHeight)
+//        self.toastView.showToast(message: message)
+//        self.view.addSubview(self.toastView)
+//        
+//    }
 }
