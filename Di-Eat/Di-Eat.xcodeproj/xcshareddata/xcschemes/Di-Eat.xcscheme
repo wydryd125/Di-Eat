@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "09F3C4FA2D225A1F002D532F"
-               BuildableName = "DELIGHT_iOS.app"
-               BlueprintName = "DELIGHT_iOS"
-               ReferencedContainer = "container:DELIGHT_iOS.xcodeproj">
+               BuildableName = "Di-Eat.app"
+               BlueprintName = "Di-Eat"
+               ReferencedContainer = "container:Di-Eat.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -36,9 +36,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "09F3C5102D225A21002D532F"
-               BuildableName = "DELIGHT_iOSTests.xctest"
-               BlueprintName = "DELIGHT_iOSTests"
-               ReferencedContainer = "container:DELIGHT_iOS.xcodeproj">
+               BuildableName = "Di-EatTests.xctest"
+               BlueprintName = "Di-EatTests"
+               ReferencedContainer = "container:Di-Eat.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "09F3C51A2D225A21002D532F"
-               BuildableName = "DELIGHT_iOSUITests.xctest"
-               BlueprintName = "DELIGHT_iOSUITests"
-               ReferencedContainer = "container:DELIGHT_iOS.xcodeproj">
+               BuildableName = "Di-EatUITests.xctest"
+               BlueprintName = "Di-EatUITests"
+               ReferencedContainer = "container:Di-Eat.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -69,9 +69,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "09F3C4FA2D225A1F002D532F"
-            BuildableName = "DELIGHT_iOS.app"
-            BlueprintName = "DELIGHT_iOS"
-            ReferencedContainer = "container:DELIGHT_iOS.xcodeproj">
+            BuildableName = "Di-Eat.app"
+            BlueprintName = "Di-Eat"
+            ReferencedContainer = "container:Di-Eat.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -93,9 +93,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "09F3C4FA2D225A1F002D532F"
-            BuildableName = "DELIGHT_iOS.app"
-            BlueprintName = "DELIGHT_iOS"
-            ReferencedContainer = "container:DELIGHT_iOS.xcodeproj">
+            BuildableName = "Di-Eat.app"
+            BlueprintName = "Di-Eat"
+            ReferencedContainer = "container:Di-Eat.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

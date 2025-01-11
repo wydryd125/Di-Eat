@@ -83,15 +83,15 @@
 		09DC5D112D245C1000B54A04 /* DelightToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelightToastView.swift; sourceTree = "<group>"; };
 		09EDE0FA2D22CCB300AD7149 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		09EDE0FC2D22D09900AD7149 /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
-		09F3C4FB2D225A1F002D532F /* DELIGHT_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DELIGHT_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		09F3C4FB2D225A1F002D532F /* Di-Eat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Di-Eat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09F3C4FE2D225A1F002D532F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09F3C5022D225A1F002D532F /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
 		09F3C5072D225A20002D532F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09F3C50A2D225A20002D532F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09F3C50C2D225A20002D532F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		09F3C5112D225A21002D532F /* DELIGHT_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DELIGHT_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		09F3C5112D225A21002D532F /* Di-EatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Di-EatTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09F3C5152D225A21002D532F /* DELIGHT_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DELIGHT_iOSTests.swift; sourceTree = "<group>"; };
-		09F3C51B2D225A21002D532F /* DELIGHT_iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DELIGHT_iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		09F3C51B2D225A21002D532F /* Di-EatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Di-EatUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09F3C51F2D225A21002D532F /* DELIGHT_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DELIGHT_iOSUITests.swift; sourceTree = "<group>"; };
 		09F3C5212D225A21002D532F /* DELIGHT_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DELIGHT_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -243,9 +243,9 @@
 		09F3C4F22D225A1F002D532F = {
 			isa = PBXGroup;
 			children = (
-				09F3C4FD2D225A1F002D532F /* DELIGHT_iOS */,
-				09F3C5142D225A21002D532F /* DELIGHT_iOSTests */,
-				09F3C51E2D225A21002D532F /* DELIGHT_iOSUITests */,
+				09F3C4FD2D225A1F002D532F /* Di-Eat */,
+				09F3C5142D225A21002D532F /* Di-EatTests */,
+				09F3C51E2D225A21002D532F /* Di-EatUITests */,
 				09F3C4FC2D225A1F002D532F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -253,14 +253,14 @@
 		09F3C4FC2D225A1F002D532F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				09F3C4FB2D225A1F002D532F /* DELIGHT_iOS.app */,
-				09F3C5112D225A21002D532F /* DELIGHT_iOSTests.xctest */,
-				09F3C51B2D225A21002D532F /* DELIGHT_iOSUITests.xctest */,
+				09F3C4FB2D225A1F002D532F /* Di-Eat.app */,
+				09F3C5112D225A21002D532F /* Di-EatTests.xctest */,
+				09F3C51B2D225A21002D532F /* Di-EatUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		09F3C4FD2D225A1F002D532F /* DELIGHT_iOS */ = {
+		09F3C4FD2D225A1F002D532F /* Di-Eat */ = {
 			isa = PBXGroup;
 			children = (
 				095B5E112D22823000FCEF62 /* Extensions */,
@@ -272,32 +272,32 @@
 				09F3C5092D225A20002D532F /* LaunchScreen.storyboard */,
 				09F3C50C2D225A20002D532F /* Info.plist */,
 			);
-			path = DELIGHT_iOS;
+			path = "Di-Eat";
 			sourceTree = "<group>";
 		};
-		09F3C5142D225A21002D532F /* DELIGHT_iOSTests */ = {
+		09F3C5142D225A21002D532F /* Di-EatTests */ = {
 			isa = PBXGroup;
 			children = (
 				09F3C5152D225A21002D532F /* DELIGHT_iOSTests.swift */,
 			);
-			path = DELIGHT_iOSTests;
+			path = "Di-EatTests";
 			sourceTree = "<group>";
 		};
-		09F3C51E2D225A21002D532F /* DELIGHT_iOSUITests */ = {
+		09F3C51E2D225A21002D532F /* Di-EatUITests */ = {
 			isa = PBXGroup;
 			children = (
 				09F3C51F2D225A21002D532F /* DELIGHT_iOSUITests.swift */,
 				09F3C5212D225A21002D532F /* DELIGHT_iOSUITestsLaunchTests.swift */,
 			);
-			path = DELIGHT_iOSUITests;
+			path = "Di-EatUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		09F3C4FA2D225A1F002D532F /* DELIGHT_iOS */ = {
+		09F3C4FA2D225A1F002D532F /* Di-Eat */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 09F3C5252D225A21002D532F /* Build configuration list for PBXNativeTarget "DELIGHT_iOS" */;
+			buildConfigurationList = 09F3C5252D225A21002D532F /* Build configuration list for PBXNativeTarget "Di-Eat" */;
 			buildPhases = (
 				09F3C4F72D225A1F002D532F /* Sources */,
 				09F3C4F82D225A1F002D532F /* Frameworks */,
@@ -307,18 +307,18 @@
 			);
 			dependencies = (
 			);
-			name = DELIGHT_iOS;
+			name = "Di-Eat";
 			packageProductDependencies = (
 				095B5E282D2283FE00FCEF62 /* SnapKit */,
 				095B5E312D22B28000FCEF62 /* DGCharts */,
 			);
 			productName = DELIGHT_iOS;
-			productReference = 09F3C4FB2D225A1F002D532F /* DELIGHT_iOS.app */;
+			productReference = 09F3C4FB2D225A1F002D532F /* Di-Eat.app */;
 			productType = "com.apple.product-type.application";
 		};
-		09F3C5102D225A21002D532F /* DELIGHT_iOSTests */ = {
+		09F3C5102D225A21002D532F /* Di-EatTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 09F3C5282D225A21002D532F /* Build configuration list for PBXNativeTarget "DELIGHT_iOSTests" */;
+			buildConfigurationList = 09F3C5282D225A21002D532F /* Build configuration list for PBXNativeTarget "Di-EatTests" */;
 			buildPhases = (
 				09F3C50D2D225A21002D532F /* Sources */,
 				09F3C50E2D225A21002D532F /* Frameworks */,
@@ -329,17 +329,17 @@
 			dependencies = (
 				09F3C5132D225A21002D532F /* PBXTargetDependency */,
 			);
-			name = DELIGHT_iOSTests;
+			name = "Di-EatTests";
 			packageProductDependencies = (
 				097425F62D23DC54000C998A /* DGCharts */,
 			);
 			productName = DELIGHT_iOSTests;
-			productReference = 09F3C5112D225A21002D532F /* DELIGHT_iOSTests.xctest */;
+			productReference = 09F3C5112D225A21002D532F /* Di-EatTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		09F3C51A2D225A21002D532F /* DELIGHT_iOSUITests */ = {
+		09F3C51A2D225A21002D532F /* Di-EatUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 09F3C52B2D225A21002D532F /* Build configuration list for PBXNativeTarget "DELIGHT_iOSUITests" */;
+			buildConfigurationList = 09F3C52B2D225A21002D532F /* Build configuration list for PBXNativeTarget "Di-EatUITests" */;
 			buildPhases = (
 				09F3C5172D225A21002D532F /* Sources */,
 				09F3C5182D225A21002D532F /* Frameworks */,
@@ -350,9 +350,9 @@
 			dependencies = (
 				09F3C51D2D225A21002D532F /* PBXTargetDependency */,
 			);
-			name = DELIGHT_iOSUITests;
+			name = "Di-EatUITests";
 			productName = DELIGHT_iOSUITests;
-			productReference = 09F3C51B2D225A21002D532F /* DELIGHT_iOSUITests.xctest */;
+			productReference = 09F3C51B2D225A21002D532F /* Di-EatUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -378,7 +378,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 09F3C4F62D225A1F002D532F /* Build configuration list for PBXProject "DELIGHT_iOS" */;
+			buildConfigurationList = 09F3C4F62D225A1F002D532F /* Build configuration list for PBXProject "Di-Eat" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -395,9 +395,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				09F3C4FA2D225A1F002D532F /* DELIGHT_iOS */,
-				09F3C5102D225A21002D532F /* DELIGHT_iOSTests */,
-				09F3C51A2D225A21002D532F /* DELIGHT_iOSUITests */,
+				09F3C4FA2D225A1F002D532F /* Di-Eat */,
+				09F3C5102D225A21002D532F /* Di-EatTests */,
+				09F3C51A2D225A21002D532F /* Di-EatUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -483,12 +483,12 @@
 /* Begin PBXTargetDependency section */
 		09F3C5132D225A21002D532F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 09F3C4FA2D225A1F002D532F /* DELIGHT_iOS */;
+			target = 09F3C4FA2D225A1F002D532F /* Di-Eat */;
 			targetProxy = 09F3C5122D225A21002D532F /* PBXContainerItemProxy */;
 		};
 		09F3C51D2D225A21002D532F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 09F3C4FA2D225A1F002D532F /* DELIGHT_iOS */;
+			target = 09F3C4FA2D225A1F002D532F /* Di-Eat */;
 			targetProxy = 09F3C51C2D225A21002D532F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -633,7 +633,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 74HVCP3R5F;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DELIGHT_iOS/Info.plist;
+				INFOPLIST_FILE = "Di-Eat/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -643,7 +643,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dev.DELIGHT-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dev.Di-Eat";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -660,7 +660,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 74HVCP3R5F;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DELIGHT_iOS/Info.plist;
+				INFOPLIST_FILE = "Di-Eat/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -670,7 +670,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dev.DELIGHT-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dev.Di-Eat";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -694,7 +694,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DELIGHT_iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DELIGHT_iOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Di-Eat.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Di-Eat";
 			};
 			name = Debug;
 		};
@@ -714,7 +714,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DELIGHT_iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DELIGHT_iOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Di-Eat.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Di-Eat";
 			};
 			name = Release;
 		};
@@ -757,7 +757,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		09F3C4F62D225A1F002D532F /* Build configuration list for PBXProject "DELIGHT_iOS" */ = {
+		09F3C4F62D225A1F002D532F /* Build configuration list for PBXProject "Di-Eat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				09F3C5232D225A21002D532F /* Debug */,
@@ -766,7 +766,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		09F3C5252D225A21002D532F /* Build configuration list for PBXNativeTarget "DELIGHT_iOS" */ = {
+		09F3C5252D225A21002D532F /* Build configuration list for PBXNativeTarget "Di-Eat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				09F3C5262D225A21002D532F /* Debug */,
@@ -775,7 +775,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		09F3C5282D225A21002D532F /* Build configuration list for PBXNativeTarget "DELIGHT_iOSTests" */ = {
+		09F3C5282D225A21002D532F /* Build configuration list for PBXNativeTarget "Di-EatTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				09F3C5292D225A21002D532F /* Debug */,
@@ -784,7 +784,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		09F3C52B2D225A21002D532F /* Build configuration list for PBXNativeTarget "DELIGHT_iOSUITests" */ = {
+		09F3C52B2D225A21002D532F /* Build configuration list for PBXNativeTarget "Di-EatUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				09F3C52C2D225A21002D532F /* Debug */,
