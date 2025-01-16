@@ -19,13 +19,26 @@ final class DietRecipeRepository {
         return Future<[Recipe], Error> { promise in
             DispatchQueue.global(qos: .userInitiated).async {
                 do {
-                    let data = try Data(contentsOf: url)
+                    var data = try Data(contentsOf: url)
                     
+                    // 제어 문자를 제거
+                    if let jsonString = String(data: data, encoding: .utf8) {
+                        let cleanedJsonString = jsonString.replacingOccurrences(of: "\\u0007", with: "")
+                        data = cleanedJsonString.data(using: .utf8) ?? data
+                    }
+                    
+                    // JSON 디코딩
                     let decoder = JSONDecoder()
-                    let recipe = try decoder.decode([Recipe].self, from: data)
-                    
-                    DispatchQueue.main.async {
-                        promise(.success(recipe))
+                    do {
+                        let recipe = try decoder.decode([Recipe].self, from: data)
+                        DispatchQueue.main.async {
+                            promise(.success(recipe))
+                        }
+                    } catch {
+                        DispatchQueue.main.async {
+                            print("Decoding error: \(error)")  // 디코딩 오류 출력
+                            promise(.failure(error))
+                        }
                     }
                 } catch {
                     DispatchQueue.main.async {
@@ -41,4 +54,5 @@ final class DietRecipeRepository {
         }
         .eraseToAnyPublisher()
     }
+
 }

@@ -26,6 +26,7 @@
 		096F81CB2D329F2300D50F49 /* dietRecipe.json in Resources */ = {isa = PBXBuildFile; fileRef = 096F81CA2D329F2300D50F49 /* dietRecipe.json */; };
 		096F81CE2D32ADFC00D50F49 /* CalorieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F81CD2D32ADFC00D50F49 /* CalorieView.swift */; };
 		096F81D02D32AE1000D50F49 /* CalorieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F81CF2D32AE1000D50F49 /* CalorieViewController.swift */; };
+		096F81D62D38DEB500D50F49 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 096F81D52D38DEB500D50F49 /* Kingfisher */; };
 		097425DF2D23BF16000C998A /* Extension+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097425DE2D23BF16000C998A /* Extension+Date.swift */; };
 		097425E12D23C2C4000C998A /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097425E02D23C2C4000C998A /* Recipe.swift */; };
 		097425F72D23DC54000C998A /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 097425F62D23DC54000C998A /* DGCharts */; };
@@ -105,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				096F81D62D38DEB500D50F49 /* Kingfisher in Frameworks */,
 				095B5E322D22B28000FCEF62 /* DGCharts in Frameworks */,
 				095B5E292D2283FE00FCEF62 /* SnapKit in Frameworks */,
 			);
@@ -147,6 +149,7 @@
 				09DC5D132D24674000B54A04 /* Base */,
 				096F81CC2D32ADB600D50F49 /* Calorie */,
 				095B5E1A2D22829600FCEF62 /* Recipe */,
+				096F81D12D38DBDB00D50F49 /* Youtube */,
 			);
 			path = Sence;
 			sourceTree = "<group>";
@@ -226,6 +229,13 @@
 				096F81CF2D32AE1000D50F49 /* CalorieViewController.swift */,
 			);
 			path = Calorie;
+			sourceTree = "<group>";
+		};
+		096F81D12D38DBDB00D50F49 /* Youtube */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Youtube;
 			sourceTree = "<group>";
 		};
 		0984CC7F2D23387B006F7957 /* Json */ = {
@@ -325,6 +335,7 @@
 			packageProductDependencies = (
 				095B5E282D2283FE00FCEF62 /* SnapKit */,
 				095B5E312D22B28000FCEF62 /* DGCharts */,
+				096F81D52D38DEB500D50F49 /* Kingfisher */,
 			);
 			productName = DELIGHT_iOS;
 			productReference = 09F3C4FB2D225A1F002D532F /* Di-Eat.app */;
@@ -404,6 +415,7 @@
 			packageReferences = (
 				095B5E272D2283FE00FCEF62 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				095B5E302D22B28000FCEF62 /* XCRemoteSwiftPackageReference "Charts" */,
+				096F81D42D38DD6E00D50F49 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 09F3C4FC2D225A1F002D532F /* Products */;
 			projectDirPath = "";
@@ -828,6 +840,14 @@
 				minimumVersion = 5.1.0;
 			};
 		};
+		096F81D42D38DD6E00D50F49 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -840,6 +860,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 095B5E302D22B28000FCEF62 /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = DGCharts;
+		};
+		096F81D52D38DEB500D50F49 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 096F81D42D38DD6E00D50F49 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		097425F62D23DC54000C998A /* DGCharts */ = {
 			isa = XCSwiftPackageProductDependency;

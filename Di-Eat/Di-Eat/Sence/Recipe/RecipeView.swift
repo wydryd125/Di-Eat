@@ -51,15 +51,22 @@ class RecipeView: BaseView {
         return button
     }()
     
-    let expenseButton: UIButton = {
-        let button = UIButton.createCustomButton(title: "Expense",
+    let lebel1Button: UIButton = {
+        let button = UIButton.createCustomButton(title: "Level 1",
                                                  font: .poppins(ofSize: 16, weight: .medium),
                                                  titleColor: UIColor(hexString: "#BDBDBD"))
         return button
     }()
     
-    let incomeButton: UIButton = {
-        let button = UIButton.createCustomButton(title: "Income",
+    let lebel2Button: UIButton = {
+        let button = UIButton.createCustomButton(title: "level 2",
+                                                 font: .poppins(ofSize: 16, weight: .medium),
+                                                 titleColor: UIColor(hexString: "#BDBDBD"))
+        return button
+    }()
+    
+    let lebel3Button: UIButton = {
+        let button = UIButton.createCustomButton(title: "lebel 3",
                                                  font: .poppins(ofSize: 16, weight: .medium),
                                                  titleColor: UIColor(hexString: "#BDBDBD"))
         return button
@@ -77,6 +84,8 @@ class RecipeView: BaseView {
         return tableView
     }()
     
+    @Published var isRecipeType = RecipeType.new
+    
     private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Life Cycle
@@ -93,7 +102,7 @@ class RecipeView: BaseView {
     
     // MARK: - UI
     private func setUI() {
-        [self.allButton, self.expenseButton, self.incomeButton].forEach {
+        [self.allButton, self.lebel1Button, self.lebel2Button, self.lebel3Button].forEach {
             self.filterStackView.addArrangedSubview($0)
         }
 

@@ -17,33 +17,6 @@ class CalorieView: BaseView {
         return view
     }()
     
-    let switchButton: DiEatSwitchButton = {
-        let button = DiEatSwitchButton()
-        return button
-    }()
-    
-    let chartView: DiEatChartView = {
-        let chartView = DiEatChartView()
-        return chartView
-    }()
-
-    let label: UILabel = {
-        let label = UILabel()
-        label.text = "Calorie"
-        label.font = .poppins(ofSize: 18, weight: .medium)
-        label.textColor = .black
-        return label
-    }()
-    
-    let filterStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.alignment = .leading
-        stackView.distribution = .fillProportionally
-        stackView.spacing = 24
-        return stackView
-    }()
-    
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.clipsToBounds = true
@@ -72,43 +45,11 @@ class CalorieView: BaseView {
     
     // MARK: - UI
     private func setUI() {
-        [self.switchButton, self.chartView, self.label, self.filterStackView].forEach {
-            self.headerView.addSubview($0)
-        }
-        
         self.tableView.tableHeaderView = self.headerView
         self.addSubview(self.tableView)
     }
     
     private func setConstraints() {
-        self.switchButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(20)
-            make.leading.equalToSuperview().inset(28)
-            make.height.equalTo(38)
-        }
-        
-        self.chartView.snp.makeConstraints { make in
-            make.top.equalTo(self.switchButton.snp.bottom).offset(10)
-            make.leading.trailing.equalToSuperview().inset(28)
-            make.height.equalTo(254)
-        }
-        
-        self.label.snp.makeConstraints { make in
-            make.top.equalTo(self.chartView.snp.bottom).offset(40)
-            make.leading.equalToSuperview().inset(28)
-            make.height.equalTo(38)
-        }
-        
-        self.filterStackView.snp.makeConstraints { make in
-            make.top.equalTo(self.label.snp.bottom).offset(30)
-            make.leading.equalToSuperview().inset(28)
-            make.height.equalTo(24)
-        }
-        
-        self.tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-        
         self.headerView.snp.makeConstraints { make in
             make.height.greaterThanOrEqualTo(469)
             make.width.equalTo(self.tableView)

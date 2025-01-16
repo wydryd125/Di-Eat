@@ -51,25 +51,32 @@ class RecipeViewController: BaseViewController, UITableViewDelegate {
     }
     
     private func bindFilterButton() {
-        [self.rootView.allButton, self.rootView.expenseButton, self.rootView.incomeButton].forEach {
+        [self.rootView.allButton, self.rootView.lebel1Button, self.rootView.lebel2Button, self.rootView.lebel3Button].forEach {
             $0.throttleTapPublisher()
                 .map { button in
                     return button.tag
                 }
                 .sink { [weak self] tag in
                     guard let self = self else { return }
+                    self.rootView.isRecipeType/* = RecipeType(rawValue: tag) ?? .level1 as! RecipeType*/
+//                    self.rootView.updateFilterButton(type: self.type)
                 }
                 .store(in: &cancellables)
         }
     }
     
     private func bindSwitchButton() {
-//        self.rootView.switchButton.$isFirstSelected
-//            .sink { [weak self] isFirst in
-//                guard let self = self else { return }
-////                self.viewModel.duration = duration
-//            }
-//            .store(in: &cancellables)
+        self.rootView.switchButton.tag
+            .sink { [weak self] (tag: Int) in
+                guard let self = self else { return }
+                switch tag {
+                case 0:
+                    
+                case 1:
+                }
+    
+            }
+            .store(in: &cancellables)
     }
     
     private func updateUI(isLoading: Bool) {
@@ -82,7 +89,7 @@ class RecipeViewController: BaseViewController, UITableViewDelegate {
     }
 
     private func updateTableView() {
-        guard let latestRecipes = self.viewModel.latestRecipes else { return }
+        guard let latestRecipes = self.viewModel.getRecentRecipe() else { return }
         let currentOffset = self.rootView.tableView.contentOffset
         var snapshot = NSDiffableDataSourceSnapshot<Int, Recipe>()
         snapshot.appendSections([0])
@@ -102,7 +109,7 @@ class RecipeViewController: BaseViewController, UITableViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: RecipeCell.identifier, for: indexPath) as? RecipeCell else {
                 fatalError("Error dequeuing RecipeCell")
             }
-            cell.drawCell()
+            cell.drawCell(recipe: recipe)
             return cell
         }
     }

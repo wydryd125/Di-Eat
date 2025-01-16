@@ -10,20 +10,7 @@ import Combine
 
 class RecipeViewModel: ObservableObject {
     private let repository = DietRecipeRepository()
-    @Published var Recipes: [Recipe]?
-    @Published var latestRecipes: [Recipe]?
-    
-//    @Published var duration: DurationType = .week {
-//        didSet {
-//            updateChartTransactions(duration: duration)
-//        }
-//    }
-//    
-//    @Published var type: TransactionType = .all {
-//        didSet {
-//            updateLatestTransactions()
-//        }
-//    }
+    @Published var recipes: [Recipe]?
     
     @Published var isLoading: Bool = false
     private var cancellables = Set<AnyCancellable>()
@@ -43,45 +30,24 @@ class RecipeViewModel: ObservableObject {
                     self.isLoading = false
                 }
             }, receiveValue: { recipes in
-                self.Recipes = recipes
-                self.updateRecentData()
+                self.recipes = recipes
             })
             .store(in: &cancellables)
     }
     
-    private func updateLatestTransactions() {
-//        guard let transactions = self.transactions else { return }
-//        self.latestTransactions = self.getLatestTransactions(type: self.type, transactions: transactions)
+    // 추천 레시피
+    func getRecommendRecipe() {
+        let topRecipes = self.recipes?
+            .sorted { $0.recommendCount > $1.recommendCount}
+            .prefix(5)
+            .map { $0 }
     }
     
-    // 최근 transaction 데이터가 있는지 확인(for toast message)
-    private func updateRecentData() {
-//        let curDate = Date().addingTimeInterval(-120)
-//        guard let transactionDate = self.transactions?.last,
-//              let tranDate = transactionDate.timestamp.convertDate() else { return }
-//        
-//        if tranDate >= curDate && tranDate <= Date() {
-//            self.recentData = transactionDate
-//        }
+    // 최근 레시피
+    func getRecentRecipe() -> [Recipe]? {
+        return self.recipes?
+            .sorted { $0.postDate > $1.postDate }
+            .prefix(10)
+            .map { $0 }
     }
-    
-    // 타입에 따른 최근 데이터
-//    private func getLatestRecipe(recipe: [Recipe]) -> [Recipe]? {
-//    
-//    }
-    
-//    // 차트 데이트 week or month
-//    func updateChartTransactions(duration: DurationType) {
-//        guard let transactions = self.transactions else { return }
-//        switch duration {
-//        case .week:
-//            let oneWeekAgo = Calendar.current.date(byAdding: .day, value: -7, to: Date()) ?? Date()
-//            self.chartData = transactions.filter {
-//                guard let transactionDate = $0.timestamp.convertDate() else { return false }
-//                return transactionDate >= oneWeekAgo
-//            }
-//        case .month:
-//            self.chartData = transactions
-//        }
-//    }
 }

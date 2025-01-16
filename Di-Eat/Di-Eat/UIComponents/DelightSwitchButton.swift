@@ -10,7 +10,7 @@ import Combine
 
 class DiEatSwitchButton: UIView {
     var firstButton: UIButton = {
-        let button = UIButton.createCustomButton(title: "Level 1",
+        let button = UIButton.createCustomButton(title: "New",
                                                  font: .poppins(ofSize: 16, weight: .medium),
                                                  titleColor: .white,
                                                  backgroundColor: UIColor(hexString: "#363062"),
@@ -21,7 +21,7 @@ class DiEatSwitchButton: UIView {
     }()
     
     var secondButton: UIButton = {
-        let button = UIButton.createCustomButton(title: "Level 2",
+        let button = UIButton.createCustomButton(title: "Best",
                                                  font: .poppins(ofSize: 16, weight: .medium),
                                                  titleColor: UIColor(hexString: "#6B6B6B"),
                                                  backgroundColor: UIColor(hexString: "#F5F5F5"),
@@ -30,18 +30,7 @@ class DiEatSwitchButton: UIView {
         button.tag = 1
         return button
     }()
-    
-    var thirdButton: UIButton = {
-        let button = UIButton.createCustomButton(title: "Level 3",
-                                                 font: .poppins(ofSize: 16, weight: .medium),
-                                                 titleColor: UIColor(hexString: "#6B6B6B"),
-                                                 backgroundColor: UIColor(hexString: "F5F5F5"),
-                                                 cornerRadius: 20,
-                                                 contentInsets: NSDirectionalEdgeInsets(top: 6, leading: 17, bottom: 6, trailing: 17))
-        button.tag = 2
-        return button
-    }()
-    
+
     private var cancellables = Set<AnyCancellable>()
     
     override init(frame: CGRect) {
@@ -55,7 +44,7 @@ class DiEatSwitchButton: UIView {
     }
     
     private func setLayout() {
-        let stackView = UIStackView(arrangedSubviews: [self.firstButton, self.secondButton, self.thirdButton])
+        let stackView = UIStackView(arrangedSubviews: [self.firstButton, self.secondButton])
         stackView.backgroundColor = UIColor(hexString: "#F5F5F5")
         stackView.layer.cornerRadius = 20
         stackView.axis = .horizontal
@@ -68,7 +57,7 @@ class DiEatSwitchButton: UIView {
     }
     
     private func bindButton() {
-        [self.firstButton, self.secondButton, self.thirdButton].forEach { button in
+        [self.firstButton, self.secondButton].forEach { button in
             button.throttleTapPublisher()
                 .sink { [weak self] _ in
                     guard let self = self else { return }
@@ -79,7 +68,7 @@ class DiEatSwitchButton: UIView {
     }
     
     private func updateButton(tag: Int) {
-        [self.firstButton, self.secondButton, self.thirdButton].forEach { button in
+        [self.firstButton, self.secondButton].forEach { button in
             guard let title = button.configuration?.title else { return }
             if button.tag == tag {
                 setButtonStyle(button: button, title: title, backgroundColor: UIColor(hexString: "#363062"), textColor: .white)
