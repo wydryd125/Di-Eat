@@ -13,7 +13,8 @@ enum RecipeType {
 }
 
 enum LevelType: Int {
-    case level1 = 0
+    case all = 0
+    case level1
     case level2
     case level3
 }

@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		0930AAA32D239A2100CEABB4 /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0930AAA22D239A2100CEABB4 /* RecipeViewModel.swift */; };
+		0956579E2D39323F0006F73B /* RecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0956579D2D39323F0006F73B /* RecipeCollectionViewCell.swift */; };
+		095657A02D3957AF0006F73B /* YouTubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0956579F2D3957AF0006F73B /* YouTubeView.swift */; };
+		095657A22D3957BE0006F73B /* YouTubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095657A12D3957BE0006F73B /* YouTubeViewController.swift */; };
+		095657A42D395D100006F73B /* youTubeVideo.json in Resources */ = {isa = PBXBuildFile; fileRef = 095657A32D395D100006F73B /* youTubeVideo.json */; };
+		095657A72D395D630006F73B /* YoutubeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095657A62D395D630006F73B /* YoutubeViewModel.swift */; };
+		095657A92D395D690006F73B /* YouTubeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095657A82D395D690006F73B /* YouTubeVideo.swift */; };
+		095657AC2D395F7A0006F73B /* YouTubeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095657AB2D395F7A0006F73B /* YouTubeCell.swift */; };
 		095B5E152D22825F00FCEF62 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 095B5E132D22825F00FCEF62 /* Poppins-Medium.ttf */; };
 		095B5E162D22825F00FCEF62 /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 095B5E142D22825F00FCEF62 /* Poppins-Light.ttf */; };
 		095B5E182D22827900FCEF62 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 095B5E172D22827900FCEF62 /* Poppins-Regular.ttf */; };
@@ -18,8 +25,8 @@
 		095B5E242D22838900FCEF62 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B5E232D22838900FCEF62 /* BaseView.swift */; };
 		095B5E262D2283D000FCEF62 /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B5E252D2283D000FCEF62 /* RecipeView.swift */; };
 		095B5E292D2283FE00FCEF62 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 095B5E282D2283FE00FCEF62 /* SnapKit */; };
-		095B5E2D2D22A6AA00FCEF62 /* DelightChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B5E2C2D22A6AA00FCEF62 /* DelightChartView.swift */; };
-		095B5E2F2D22A8ED00FCEF62 /* DelightSwitchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B5E2E2D22A8ED00FCEF62 /* DelightSwitchButton.swift */; };
+		095B5E2D2D22A6AA00FCEF62 /* DiEatChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B5E2C2D22A6AA00FCEF62 /* DiEatChartView.swift */; };
+		095B5E2F2D22A8ED00FCEF62 /* DiEatSwitchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B5E2E2D22A8ED00FCEF62 /* DiEatSwitchButton.swift */; };
 		095B5E322D22B28000FCEF62 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 095B5E312D22B28000FCEF62 /* DGCharts */; };
 		095B5E352D22BEC900FCEF62 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B5E342D22BEC800FCEF62 /* RecipeCell.swift */; };
 		096ED8122D2339A400D5C8B8 /* DietRecipeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096ED8112D2339A400D5C8B8 /* DietRecipeRepository.swift */; };
@@ -64,6 +71,13 @@
 
 /* Begin PBXFileReference section */
 		0930AAA22D239A2100CEABB4 /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
+		0956579D2D39323F0006F73B /* RecipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCollectionViewCell.swift; sourceTree = "<group>"; };
+		0956579F2D3957AF0006F73B /* YouTubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeView.swift; sourceTree = "<group>"; };
+		095657A12D3957BE0006F73B /* YouTubeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeViewController.swift; sourceTree = "<group>"; };
+		095657A32D395D100006F73B /* youTubeVideo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = youTubeVideo.json; sourceTree = "<group>"; };
+		095657A62D395D630006F73B /* YoutubeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeViewModel.swift; sourceTree = "<group>"; };
+		095657A82D395D690006F73B /* YouTubeVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeVideo.swift; sourceTree = "<group>"; };
+		095657AB2D395F7A0006F73B /* YouTubeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeCell.swift; sourceTree = "<group>"; };
 		095B5E132D22825F00FCEF62 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		095B5E142D22825F00FCEF62 /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
 		095B5E172D22827900FCEF62 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
@@ -73,8 +87,8 @@
 		095B5E212D22836F00FCEF62 /* DiEatTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiEatTabBarController.swift; sourceTree = "<group>"; };
 		095B5E232D22838900FCEF62 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		095B5E252D2283D000FCEF62 /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
-		095B5E2C2D22A6AA00FCEF62 /* DelightChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelightChartView.swift; sourceTree = "<group>"; };
-		095B5E2E2D22A8ED00FCEF62 /* DelightSwitchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelightSwitchButton.swift; sourceTree = "<group>"; };
+		095B5E2C2D22A6AA00FCEF62 /* DiEatChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiEatChartView.swift; sourceTree = "<group>"; };
+		095B5E2E2D22A8ED00FCEF62 /* DiEatSwitchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiEatSwitchButton.swift; sourceTree = "<group>"; };
 		095B5E342D22BEC800FCEF62 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		096ED8112D2339A400D5C8B8 /* DietRecipeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietRecipeRepository.swift; sourceTree = "<group>"; };
 		096F81CA2D329F2300D50F49 /* dietRecipe.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dietRecipe.json; sourceTree = "<group>"; };
@@ -130,12 +144,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		095657A52D395D2A0006F73B /* YouTube */ = {
+			isa = PBXGroup;
+			children = (
+				095657A62D395D630006F73B /* YoutubeViewModel.swift */,
+				095657A82D395D690006F73B /* YouTubeVideo.swift */,
+			);
+			path = YouTube;
+			sourceTree = "<group>";
+		};
+		095657AA2D395F650006F73B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				095657AB2D395F7A0006F73B /* YouTubeCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		095B5E0D2D2281EF00FCEF62 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
 				095B5E122D22824C00FCEF62 /* Fonts */,
-				095B5E2C2D22A6AA00FCEF62 /* DelightChartView.swift */,
-				095B5E2E2D22A8ED00FCEF62 /* DelightSwitchButton.swift */,
+				095B5E2C2D22A6AA00FCEF62 /* DiEatChartView.swift */,
+				095B5E2E2D22A8ED00FCEF62 /* DiEatSwitchButton.swift */,
 				09DC5D112D245C1000B54A04 /* DelightToastView.swift */,
 			);
 			path = UIComponents;
@@ -149,7 +180,7 @@
 				09DC5D132D24674000B54A04 /* Base */,
 				096F81CC2D32ADB600D50F49 /* Calorie */,
 				095B5E1A2D22829600FCEF62 /* Recipe */,
-				096F81D12D38DBDB00D50F49 /* Youtube */,
+				096F81D12D38DBDB00D50F49 /* YouTube */,
 			);
 			path = Sence;
 			sourceTree = "<group>";
@@ -158,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				09CE04BC2D239EDC0056B1CB /* Recipe */,
+				095657A52D395D2A0006F73B /* YouTube */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				095B5E342D22BEC800FCEF62 /* RecipeCell.swift */,
+				0956579D2D39323F0006F73B /* RecipeCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -231,16 +264,20 @@
 			path = Calorie;
 			sourceTree = "<group>";
 		};
-		096F81D12D38DBDB00D50F49 /* Youtube */ = {
+		096F81D12D38DBDB00D50F49 /* YouTube */ = {
 			isa = PBXGroup;
 			children = (
+				095657AA2D395F650006F73B /* Cell */,
+				0956579F2D3957AF0006F73B /* YouTubeView.swift */,
+				095657A12D3957BE0006F73B /* YouTubeViewController.swift */,
 			);
-			path = Youtube;
+			path = YouTube;
 			sourceTree = "<group>";
 		};
 		0984CC7F2D23387B006F7957 /* Json */ = {
 			isa = PBXGroup;
 			children = (
+				095657A32D395D100006F73B /* youTubeVideo.json */,
 				096F81CA2D329F2300D50F49 /* dietRecipe.json */,
 			);
 			path = Json;
@@ -434,6 +471,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				096F81CB2D329F2300D50F49 /* dietRecipe.json in Resources */,
+				095657A42D395D100006F73B /* youTubeVideo.json in Resources */,
 				095B5E152D22825F00FCEF62 /* Poppins-Medium.ttf in Resources */,
 				09EDE0FB2D22CCB400AD7149 /* Poppins-Bold.ttf in Resources */,
 				09F3C5082D225A20002D532F /* Assets.xcassets in Resources */,
@@ -464,10 +502,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				095657A92D395D690006F73B /* YouTubeVideo.swift in Sources */,
 				097425E12D23C2C4000C998A /* Recipe.swift in Sources */,
 				09F3C5032D225A1F002D532F /* RecipeViewController.swift in Sources */,
 				095B5E352D22BEC900FCEF62 /* RecipeCell.swift in Sources */,
-				095B5E2F2D22A8ED00FCEF62 /* DelightSwitchButton.swift in Sources */,
+				095B5E2F2D22A8ED00FCEF62 /* DiEatSwitchButton.swift in Sources */,
 				095B5E202D2282FD00FCEF62 /* DiEatTabBar.swift in Sources */,
 				096F81CE2D32ADFC00D50F49 /* CalorieView.swift in Sources */,
 				09F3C4FF2D225A1F002D532F /* AppDelegate.swift in Sources */,
@@ -480,11 +519,16 @@
 				097425F92D243093000C998A /* Extension+Array.swift in Sources */,
 				09B48D662D22D97900A12C72 /* Extension+UIControl.swift in Sources */,
 				095B5E242D22838900FCEF62 /* BaseView.swift in Sources */,
+				095657AC2D395F7A0006F73B /* YouTubeCell.swift in Sources */,
 				095B5E262D2283D000FCEF62 /* RecipeView.swift in Sources */,
+				095657A22D3957BE0006F73B /* YouTubeViewController.swift in Sources */,
+				0956579E2D39323F0006F73B /* RecipeCollectionViewCell.swift in Sources */,
 				09DC5D122D245C1000B54A04 /* DelightToastView.swift in Sources */,
 				095B5E1D2D2282E000FCEF62 /* Extension+UIColor.swift in Sources */,
-				095B5E2D2D22A6AA00FCEF62 /* DelightChartView.swift in Sources */,
+				095657A02D3957AF0006F73B /* YouTubeView.swift in Sources */,
+				095B5E2D2D22A6AA00FCEF62 /* DiEatChartView.swift in Sources */,
 				096F81D02D32AE1000D50F49 /* CalorieViewController.swift in Sources */,
+				095657A72D395D630006F73B /* YoutubeViewModel.swift in Sources */,
 				095B5E222D22836F00FCEF62 /* DiEatTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -585,7 +629,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -642,7 +686,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

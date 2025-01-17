@@ -31,6 +31,7 @@ class DiEatSwitchButton: UIView {
         return button
     }()
 
+    @Published var isFirstSelected = true
     private var cancellables = Set<AnyCancellable>()
     
     override init(frame: CGRect) {
@@ -62,6 +63,7 @@ class DiEatSwitchButton: UIView {
                 .sink { [weak self] _ in
                     guard let self = self else { return }
                     self.updateButton(tag: button.tag)
+                    self.isFirstSelected = button.tag == 0 ? true : false
                 }
                 .store(in: &cancellables)
         }

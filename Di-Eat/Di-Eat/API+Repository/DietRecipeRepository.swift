@@ -54,5 +54,41 @@ final class DietRecipeRepository {
         }
         .eraseToAnyPublisher()
     }
-
+    
+    func loadRecipeVideo() -> AnyPublisher<[YouTubeVideo], Error> {
+        guard let url = Bundle.main.url(forResource: "YouTubeVideo", withExtension: "json") else {
+            return Fail(error: URLError(.fileDoesNotExist)).eraseToAnyPublisher()
+        }
+        
+        return Future<[YouTubeVideo], Error> { promise in
+            DispatchQueue.global(qos: .userInitiated).async {
+                do {
+                    var data = try Data(contentsOf: url)
+                    
+                    let decoder = JSONDecoder()
+                    do {
+                        let video = try decoder.decode([YouTubeVideo].self, from: data)
+                        DispatchQueue.main.async {
+                            promise(.success(video))
+                        }
+                    } catch {
+                        DispatchQueue.main.async {
+                            print("Decoding error: \(error)")
+                            promise(.failure(error))
+                        }
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        promise(.failure(error))
+                    }
+                }
+            }
+        }
+        .flatMap { video -> AnyPublisher<[YouTubeVideo], Error> in
+            return Just(video)
+                .setFailureType(to: Error.self)
+                .eraseToAnyPublisher()
+        }
+        .eraseToAnyPublisher()
+    }
 }

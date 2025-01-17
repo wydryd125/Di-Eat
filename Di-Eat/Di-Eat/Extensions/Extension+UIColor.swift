@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIColor {
-    convenience init(hexString hex: String) {
+    convenience init(hexString hex: String, alpha: Double = 1.0) {
         var cString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
         if cString.hasPrefix("#") {
@@ -30,7 +30,7 @@ extension UIColor {
             green = 0.0
             blue = 0.0
         }
-        self.init(red: red, green: green, blue: blue, alpha: 1.0)
+        self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
 }
 

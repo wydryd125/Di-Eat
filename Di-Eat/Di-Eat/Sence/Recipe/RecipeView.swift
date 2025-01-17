@@ -13,8 +13,22 @@ class RecipeView: BaseView {
     // MARK: - Property
     let headerView: UIView = {
         let view = UIView()
-        view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 469)
+        view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 474)
         return view
+    }()
+    
+    let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width / 1.5, height: 320)
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .white
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.register(RecipeCollectionViewCell.self, forCellWithReuseIdentifier: RecipeCollectionViewCell.identifier)
+        return collectionView
     }()
     
     let switchButton: DiEatSwitchButton = {
@@ -22,14 +36,17 @@ class RecipeView: BaseView {
         return button
     }()
     
-    let chartView: DiEatChartView = {
-        let chartView = DiEatChartView()
-        return chartView
-    }()
-
-    let label: UILabel = {
+    let bestLabel: UILabel = {
         let label = UILabel()
-        label.text = "Recipe"
+        label.text = "Best Recipe"
+        label.font = .poppins(ofSize: 18, weight: .medium)
+        label.textColor = .black
+        return label
+    }()
+    
+    let newLabel: UILabel = {
+        let label = UILabel()
+        label.text = "New Recipe"
         label.font = .poppins(ofSize: 18, weight: .medium)
         label.textColor = .black
         return label
@@ -46,29 +63,33 @@ class RecipeView: BaseView {
     
     let allButton: UIButton = {
         let button = UIButton.createCustomButton(title: "All",
-                                                 font: .poppins(ofSize: 16, weight: .medium),
+                                                 font: .poppins(ofSize: 12, weight: .medium),
                                                  titleColor: UIColor(hexString: "#363062"))
+        button.tag = LevelType.all.rawValue
         return button
     }()
     
-    let lebel1Button: UIButton = {
+    let level1Button: UIButton = {
         let button = UIButton.createCustomButton(title: "Level 1",
-                                                 font: .poppins(ofSize: 16, weight: .medium),
+                                                 font: .poppins(ofSize: 12, weight: .medium),
                                                  titleColor: UIColor(hexString: "#BDBDBD"))
+        button.tag = LevelType.level1.rawValue
         return button
     }()
     
-    let lebel2Button: UIButton = {
+    let level2Button: UIButton = {
         let button = UIButton.createCustomButton(title: "level 2",
-                                                 font: .poppins(ofSize: 16, weight: .medium),
+                                                 font: .poppins(ofSize: 12, weight: .medium),
                                                  titleColor: UIColor(hexString: "#BDBDBD"))
+        button.tag = LevelType.level2.rawValue
         return button
     }()
     
-    let lebel3Button: UIButton = {
+    let level3Button: UIButton = {
         let button = UIButton.createCustomButton(title: "lebel 3",
-                                                 font: .poppins(ofSize: 16, weight: .medium),
+                                                 font: .poppins(ofSize: 12, weight: .medium),
                                                  titleColor: UIColor(hexString: "#BDBDBD"))
+        button.tag = LevelType.level3.rawValue
         return button
     }()
     
@@ -84,14 +105,12 @@ class RecipeView: BaseView {
         return tableView
     }()
     
-    @Published var isRecipeType = RecipeType.new
-    
     private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Life Cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
-       
+        
         self.setUI()
         self.setConstraints()
     }
@@ -101,12 +120,43 @@ class RecipeView: BaseView {
     }
     
     // MARK: - UI
+    func updateRecipeView(type: RecipeType) {
+//        self.label.text = type == .new ? "New Recipe" : "Best Recipe"
+        
+    }
+    
+    func updateLevelbutton(level: LevelType) {
+        [self.allButton, self.level1Button, self.level2Button, self.level3Button].enumerated().forEach { idx, button in
+            let title: String
+            switch idx {
+            case LevelType.all.rawValue:
+                title = "All"
+            case LevelType.level1.rawValue:
+                title = "Level 1"
+            case LevelType.level2.rawValue:
+                title = "Level 2"
+            case LevelType.level3.rawValue:
+                title = "Level 3"
+            default:
+                title = ""
+            }
+            
+            let fontColor = (level.rawValue == idx) ? "#363062" : "#BDBDBD"
+            
+            var attString = AttributedString(title)
+            attString.font = .poppins(ofSize: 12, weight: .medium)
+            attString.foregroundColor = UIColor(hexString: fontColor)
+            
+            button.configuration?.attributedTitle = attString
+        }
+    }
+    
     private func setUI() {
-        [self.allButton, self.lebel1Button, self.lebel2Button, self.lebel3Button].forEach {
+        [self.allButton, self.level1Button, self.level2Button, self.level3Button].forEach {
             self.filterStackView.addArrangedSubview($0)
         }
-
-        [self.switchButton, self.chartView, self.label, self.filterStackView].forEach {
+        
+        [self.bestLabel, self.collectionView, self.newLabel, self.filterStackView].forEach {
             self.headerView.addSubview($0)
         }
         
@@ -115,27 +165,28 @@ class RecipeView: BaseView {
     }
     
     private func setConstraints() {
-        self.switchButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(20)
+        self.bestLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(16)
             make.leading.equalToSuperview().inset(28)
             make.height.equalTo(38)
         }
-        
-        self.chartView.snp.makeConstraints { make in
-            make.top.equalTo(self.switchButton.snp.bottom).offset(10)
-            make.leading.trailing.equalToSuperview().inset(28)
-            make.height.equalTo(254)
+            
+        self.collectionView.snp.makeConstraints { make in
+            make.top.equalTo(self.bestLabel.snp.bottom).offset(10)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(320)
         }
         
-        self.label.snp.makeConstraints { make in
-            make.top.equalTo(self.chartView.snp.bottom).offset(40)
+        self.newLabel.snp.makeConstraints { make in
+            make.top.equalTo(self.collectionView.snp.bottom).offset(18)
             make.leading.equalToSuperview().inset(28)
             make.height.equalTo(38)
         }
-        
+
         self.filterStackView.snp.makeConstraints { make in
-            make.top.equalTo(self.label.snp.bottom).offset(30)
+            make.top.equalTo(self.newLabel.snp.bottom).offset(10)
             make.leading.equalToSuperview().inset(28)
+            make.bottom.equalToSuperview()
             make.height.equalTo(24)
         }
         
@@ -144,7 +195,7 @@ class RecipeView: BaseView {
         }
         
         self.headerView.snp.makeConstraints { make in
-            make.height.greaterThanOrEqualTo(469)
+            make.height.greaterThanOrEqualTo(474)
             make.width.equalTo(self.tableView)
         }
     }

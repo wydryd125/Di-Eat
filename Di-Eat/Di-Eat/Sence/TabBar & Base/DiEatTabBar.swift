@@ -10,6 +10,7 @@ import UIKit
 enum Tab: String {
     case calorie = "Calorie"
     case recipe = "Recipe"
+    case youTube = "YouTube"
     
     func getIconImage() -> UIImage? {
         switch self {
@@ -17,6 +18,8 @@ enum Tab: String {
             return UIImage(named: "iconCalories")
         case .recipe:
             return UIImage(named: "iconRecipe")
+        case .youTube:
+            return UIImage(named: "iconYouTube")
         }
     }
 }
@@ -102,7 +105,7 @@ class DiEatTabBarView: UIView {
             let button = UIButton()
             tabStackView.addArrangedSubview(button)
             button.snp.makeConstraints { make in
-                make.width.equalTo((UIScreen.main.bounds.width - 56) / 2)
+                make.width.equalTo((UIScreen.main.bounds.width - 56) / 3)
                 make.height.equalToSuperview()
             }
             

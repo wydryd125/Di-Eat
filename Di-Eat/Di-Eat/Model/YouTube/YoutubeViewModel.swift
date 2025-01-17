@@ -1,16 +1,16 @@
 //
-//  RecipeViewModel.swift
+//  YoutubeViewModel.swift
 //  Di-Eat
 //
-//  Created by wjdyukyung on 12/31/24.
+//  Created by wjdyukyung on 1/17/25.
 //
 
 import Foundation
 import Combine
 
-class RecipeViewModel: ObservableObject {
+class YoutubeViewModel: ObservableObject {
     private let repository = DietRecipeRepository()
-    @Published var recipes: [Recipe]?
+    @Published var youTubeVideo: [YouTubeVideo]?
     
     @Published var isLoading: Bool = false
     private var cancellables = Set<AnyCancellable>()
@@ -20,7 +20,7 @@ class RecipeViewModel: ObservableObject {
     func bind() {
         self.isLoading = true
         
-        self.repository.loadRecipe()
+        self.repository.loadRecipeVideo()
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
@@ -29,25 +29,9 @@ class RecipeViewModel: ObservableObject {
                     print("Failed to load Recipes: \(error.localizedDescription)")
                     self.isLoading = false
                 }
-            }, receiveValue: { recipes in
-                self.recipes = recipes
+            }, receiveValue: { video in
+                self.youTubeVideo = video
             })
             .store(in: &cancellables)
-    }
-    
-    // 추천 레시피
-    func getRecommendRecipe() -> [Recipe]? {
-        return self.recipes?
-            .sorted { $0.recommendCount > $1.recommendCount}
-            .prefix(5)
-            .map { $0 }
-    }
-    
-    // 최근 레시피
-    func getLatestRecipe() -> [Recipe]? {
-        return self.recipes?
-            .sorted { $0.postDate > $1.postDate }
-            .prefix(10)
-            .map { $0 }
     }
 }

@@ -11,6 +11,7 @@ import Combine
 class RecipeViewController: BaseViewController, UITableViewDelegate {
     // MARK: - Property
     private let rootView = RecipeView()
+    private var collectionViewDataSource: UICollectionViewDiffableDataSource<Int, Recipe>!
     private var dataSource: UITableViewDiffableDataSource<Int, Recipe>!
     
     private let viewModel = RecipeViewModel()
@@ -25,7 +26,6 @@ class RecipeViewController: BaseViewController, UITableViewDelegate {
         self.bindViewModel()
         self.bindSwitchButton()
         self.bindFilterButton()
-        self.configureTableView()
     }
     
     private func bindViewModel() {
@@ -51,30 +51,25 @@ class RecipeViewController: BaseViewController, UITableViewDelegate {
     }
     
     private func bindFilterButton() {
-        [self.rootView.allButton, self.rootView.lebel1Button, self.rootView.lebel2Button, self.rootView.lebel3Button].forEach {
+        [self.rootView.allButton, self.rootView.level1Button, self.rootView.level2Button, self.rootView.level3Button].forEach {
             $0.throttleTapPublisher()
                 .map { button in
                     return button.tag
                 }
-                .sink { [weak self] tag in
+                .sink { [weak self] level in
                     guard let self = self else { return }
-                    self.rootView.isRecipeType/* = RecipeType(rawValue: tag) ?? .level1 as! RecipeType*/
-//                    self.rootView.updateFilterButton(type: self.type)
+                    self.rootView.updateLevelbutton(level: LevelType(rawValue: level) ?? .all)
                 }
                 .store(in: &cancellables)
         }
     }
     
     private func bindSwitchButton() {
-        self.rootView.switchButton.tag
-            .sink { [weak self] (tag: Int) in
+        self.rootView.switchButton.$isFirstSelected
+            .sink { [weak self] isFirst in
                 guard let self = self else { return }
-                switch tag {
-                case 0:
-                    
-                case 1:
-                }
-    
+                let type = isFirst ? RecipeType.new : RecipeType.best
+                self.rootView.updateRecipeView(type: type)
             }
             .store(in: &cancellables)
     }
@@ -84,12 +79,35 @@ class RecipeViewController: BaseViewController, UITableViewDelegate {
             print("Loading...")
         } else {
             print("Loading complete!!!")
+            self.updateCollecionView()
             self.updateTableView()
         }
     }
 
+    private func updateCollecionView() {
+        guard let latestRecipes = self.viewModel.getRecommendRecipe() else { return }
+        let currentOffset = self.rootView.tableView.contentOffset
+        var snapshot = NSDiffableDataSourceSnapshot<Int, Recipe>()
+        snapshot.appendSections([0])
+        snapshot.appendItems(latestRecipes)
+        
+        self.collectionViewDataSource.apply(snapshot, animatingDifferences: true)
+        self.rootView.collectionView.layoutIfNeeded()
+    }
+    
+    private func configureCollecionView() {
+        self.rootView.collectionView.register(RecipeCollectionViewCell.self, forCellWithReuseIdentifier: RecipeCollectionViewCell.identifier)
+        self.collectionViewDataSource = UICollectionViewDiffableDataSource<Int, Recipe>(collectionView: self.rootView.collectionView) { collectionView, indexPath, recipe in
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeCollectionViewCell.identifier, for: indexPath) as? RecipeCollectionViewCell else {
+                fatalError("Error dequeuing RecipeCollectionViewCell")
+            }
+            cell.drawCell(index: indexPath.row + 1, recipe: recipe)
+            return cell
+        }
+    }
+        
     private func updateTableView() {
-        guard let latestRecipes = self.viewModel.getRecentRecipe() else { return }
+        guard let latestRecipes = self.viewModel.getLatestRecipe() else { return }
         let currentOffset = self.rootView.tableView.contentOffset
         var snapshot = NSDiffableDataSourceSnapshot<Int, Recipe>()
         snapshot.appendSections([0])
@@ -115,6 +133,9 @@ class RecipeViewController: BaseViewController, UITableViewDelegate {
     }
 
     private func configure() {
+        self.configureCollecionView()
+        self.configureTableView()
+        
         self.view.addSubview(self.rootView)
         
         self.rootView.snp.makeConstraints { make in

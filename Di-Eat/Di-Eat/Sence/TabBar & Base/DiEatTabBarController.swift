@@ -14,12 +14,12 @@ class DiEatTabBarController: UIViewController {
     private let headerView = UIView()
     private let headerLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = UIColor(hexString: "#363062")
         label.font = .poppins(ofSize: 24, weight: .bold)
         return label
     }()
     
-    private let tabBarView = DiEatTabBarView(tabs: [.calorie, .recipe])
+    private let tabBarView = DiEatTabBarView(tabs: [.calorie, .recipe, .youTube])
     private var currentChildVC: UIViewController?
     private var cancellables = Set<AnyCancellable>()
     // MARK: - Life Cycle
@@ -77,6 +77,9 @@ class DiEatTabBarController: UIViewController {
             self.setChildViewController(childVC)
         case .recipe:
             let childVC = RecipeViewController()
+            self.setChildViewController(childVC)
+        case .youTube:
+            let childVC = YouTubeViewController()
             self.setChildViewController(childVC)
         }
     }

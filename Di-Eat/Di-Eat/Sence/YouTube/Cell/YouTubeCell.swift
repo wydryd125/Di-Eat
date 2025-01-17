@@ -1,16 +1,14 @@
 //
-//  RecipeCell.swift
+//  YouTubeCell.swift
 //  Di-Eat
 //
-//  Created by wjdyukyung on 12/30/24.
+//  Created by wjdyukyung on 1/17/25.
 //
 
 import UIKit
-import Kingfisher
 
-class RecipeCell: UITableViewCell {
-    // MARK: - Property
-    static let identifier = "RecipeCell"
+class YouTubeCell: UITableViewCell {
+    static let identifier = "YouTubeCell"
     
     private var recipeImageView: UIImageView = {
         let imageView = UIImageView()
@@ -70,23 +68,23 @@ class RecipeCell: UITableViewCell {
         
     }
     
-    func drawCell(recipe: Recipe) {
-        if let imageURL = URL(string: recipe.imageUrl) {
-            self.recipeImageView.kf.setImage(with: imageURL)
-        }
-        self.titleLabel.text = recipe.title
-        self.typeLabel.text = recipe.foodType
-        self.levelLabel.text = recipe.transformedLevel
-        self.dateLabel.text = recipe.formatDate
+    func drawCell(youTube: YouTubeVideo) {
+//        if let imageURL = URL(string: recipe.imageUrl) {
+//            self.recipeImageView.kf.setImage(with: imageURL)
+//        }
+//        self.titleLabel.text = recipe.title
+//        self.typeLabel.text = recipe.foodType
+//        self.levelLabel.text = recipe.transformedLevel
+//        self.dateLabel.text = recipe.formatDate
     }
     
     private func setUI() {
-        self.selectionStyle = .none
-        self.backgroundColor = .white
-        
-        [self.recipeImageView, self.titleLabel, self.typeLabel, self.levelLabel, self.dateLabel, self.lineView].forEach {
-            self.contentView.addSubview($0)
-        }
+//        self.selectionStyle = .none
+//        self.backgroundColor = .white
+//        
+//        [self.recipeImageView, self.nameLabel, self.typeLabel, self.levelLabel, self.dateLabel, self.lineView].forEach {
+//            self.contentView.addSubview($0)
+//        }
     }
     
     private func setConstraints() {
