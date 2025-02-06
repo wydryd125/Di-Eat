@@ -54,7 +54,7 @@ class DiEatTabBarView: UIView {
                   let imageView = button.subviews.first(where: { $0 is UIImageView }) else { return }
             
             if index == idx {
-                imageView.tintColor = UIColor(hexString: "#363062")
+                imageView.tintColor = .diEatNavy
                 imageView.snp.updateConstraints { make in
                     make.centerY.equalToSuperview().offset(-8)
                 }
@@ -64,7 +64,7 @@ class DiEatTabBarView: UIView {
                 }
                 
                 let focusView = UIView()
-                focusView.backgroundColor = UIColor(hexString: "#363062")
+                focusView.backgroundColor = .diEatNavy
                 focusView.layer.cornerRadius = 4
                 focusView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
                 focusView.tag = 999
@@ -76,7 +76,7 @@ class DiEatTabBarView: UIView {
                     make.height.equalTo(5)
                 }
             } else {
-                imageView.tintColor = UIColor(hexString: "#BDBDBD")
+                imageView.tintColor = .diEatGray400
                 imageView.snp.updateConstraints { make in
                     make.centerY.equalToSuperview()
                 }
@@ -111,7 +111,7 @@ class DiEatTabBarView: UIView {
             
             let imageView = UIImageView()
             imageView.image = tab.getIconImage()
-            imageView.tintColor = UIColor(hexString: "#BDBDBD")
+            imageView.tintColor = .diEatGray400
             button.addSubview(imageView)
             
             imageView.snp.makeConstraints { make in

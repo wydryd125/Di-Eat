@@ -9,6 +9,7 @@ import UIKit
 import Combine
 
 extension UIControl {
+    // Subscription을 담당하는 클래스
     final class GestureSubscription<S: Subscriber, Control: UIControl>: Subscription
     where S.Input == Control {
         private var subscriber: S?
@@ -21,7 +22,7 @@ extension UIControl {
         }
         
         func request(_ demand: Subscribers.Demand) {
-            
+            // 기본적인 구독 요청 처리
         }
         
         func cancel() {
@@ -33,6 +34,7 @@ extension UIControl {
         }
     }
     
+    // Publisher를 정의
     final class GesturePublisher<Control: UIControl>: Publisher {
         typealias Output = Control
         typealias Failure = Never
@@ -53,10 +55,13 @@ extension UIControl {
         }
     }
     
-    func throttleTapPublisher() -> Publishers.Throttle<UIControl.GesturePublisher<UIControl>, RunLoop> {
+    // tap 이벤트를 다루는 메서드
+    func throttleTapPublisher() -> AnyPublisher<UIControl, Never> {
         return GesturePublisher(control: self, controlEvent: .touchUpInside)
+            .map { _ in self } // self를 반환, self는 UIButton입니다.
             .throttle(for: .seconds(0.5),
                       scheduler: RunLoop.main,
                       latest: false)
+            .eraseToAnyPublisher()
     }
 }

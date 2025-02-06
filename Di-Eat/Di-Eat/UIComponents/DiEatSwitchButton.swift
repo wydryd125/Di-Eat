@@ -13,7 +13,7 @@ class DiEatSwitchButton: UIView {
         let button = UIButton.createCustomButton(title: "New",
                                                  font: .poppins(ofSize: 16, weight: .medium),
                                                  titleColor: .white,
-                                                 backgroundColor: UIColor(hexString: "#363062"),
+                                                 backgroundColor: .diEatNavy,
                                                  cornerRadius: 20,
                                                  contentInsets: NSDirectionalEdgeInsets(top: 6, leading: 17, bottom: 6, trailing: 17))
         button.tag = 0
@@ -23,15 +23,15 @@ class DiEatSwitchButton: UIView {
     var secondButton: UIButton = {
         let button = UIButton.createCustomButton(title: "Best",
                                                  font: .poppins(ofSize: 16, weight: .medium),
-                                                 titleColor: UIColor(hexString: "#6B6B6B"),
-                                                 backgroundColor: UIColor(hexString: "#F5F5F5"),
+                                                 titleColor: .diEatGray800,
+                                                 backgroundColor: .diEatGray100,
                                                  cornerRadius: 20,
                                                  contentInsets: NSDirectionalEdgeInsets(top: 6, leading: 17, bottom: 6, trailing: 17))
         button.tag = 1
         return button
     }()
 
-    @Published var isFirstSelected = true
+    @Published var isFirstSelected: Bool?
     private var cancellables = Set<AnyCancellable>()
     
     override init(frame: CGRect) {
@@ -46,7 +46,7 @@ class DiEatSwitchButton: UIView {
     
     private func setLayout() {
         let stackView = UIStackView(arrangedSubviews: [self.firstButton, self.secondButton])
-        stackView.backgroundColor = UIColor(hexString: "#F5F5F5")
+        stackView.backgroundColor = .diEatGray100
         stackView.layer.cornerRadius = 20
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
@@ -69,13 +69,14 @@ class DiEatSwitchButton: UIView {
         }
     }
     
-    private func updateButton(tag: Int) {
+    func updateButton(tag: Int) {
+        self.isFirstSelected = tag == 0 ? true : false
         [self.firstButton, self.secondButton].forEach { button in
             guard let title = button.configuration?.title else { return }
             if button.tag == tag {
-                setButtonStyle(button: button, title: title, backgroundColor: UIColor(hexString: "#363062"), textColor: .white)
+                self.setButtonStyle(button: button, title: title, backgroundColor: tag == 1 ? .diEatOrange : .diEatNavy, textColor: .white)
             } else {
-                setButtonStyle(button: button, title: title, backgroundColor: UIColor(hexString: "#F5F5F5"), textColor: UIColor(hexString: "#6B6B6B"))
+                self.setButtonStyle(button: button, title: title, backgroundColor: .diEatGray100, textColor: .diEatGray800)
             }
         }
     }

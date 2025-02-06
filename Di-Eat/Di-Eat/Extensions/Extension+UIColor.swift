@@ -32,5 +32,17 @@ extension UIColor {
         }
         self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
+    
+    static var diEatNavy: UIColor { UIColor(hexString: "#363062") }
+    static var diEatSkyBlue: UIColor { UIColor(hexString: "#85CAE4") }
+    static var diEatBondiBlue: UIColor { UIColor(hexString: "#009EBA") }
+    
+    static var diEatOrange: UIColor { UIColor(hexString: "#FF8527") }
+    static var diEatYellow: UIColor { UIColor(hexString: "#FFB945") }
+    
+    static var diEatGray800: UIColor { UIColor(hexString: "#636773") }
+    static var diEatGray600: UIColor { UIColor(hexString: "#B3B4BA") }
+    static var diEatGray400: UIColor { UIColor(hexString: "#E1E2E3") }
+    static var diEatGray100: UIColor { UIColor(hexString: "#F2F3F4") }
 }
 

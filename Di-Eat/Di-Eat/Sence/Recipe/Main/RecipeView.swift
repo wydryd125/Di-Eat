@@ -11,11 +11,13 @@ import SnapKit
 
 class RecipeView: BaseView {
     // MARK: - Property
-    let headerView: UIView = {
+    private let headerView: UIView = {
         let view = UIView()
         view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 474)
         return view
     }()
+    
+    let levelButtonView = DiEatRecipeLevelButtonView()
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -31,12 +33,7 @@ class RecipeView: BaseView {
         return collectionView
     }()
     
-    let switchButton: DiEatSwitchButton = {
-        let button = DiEatSwitchButton()
-        return button
-    }()
-    
-    let bestLabel: UILabel = {
+    private let bestLabel: UILabel = {
         let label = UILabel()
         label.text = "Best Recipe"
         label.font = .poppins(ofSize: 18, weight: .medium)
@@ -44,7 +41,14 @@ class RecipeView: BaseView {
         return label
     }()
     
-    let newLabel: UILabel = {
+    let bestButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "iconMore"), for: .normal)
+        button.tintColor = .diEatGray600
+        return button
+    }()
+    
+    private let newLabel: UILabel = {
         let label = UILabel()
         label.text = "New Recipe"
         label.font = .poppins(ofSize: 18, weight: .medium)
@@ -52,47 +56,13 @@ class RecipeView: BaseView {
         return label
     }()
     
-    let filterStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.alignment = .leading
-        stackView.distribution = .fillProportionally
-        stackView.spacing = 24
-        return stackView
-    }()
-    
-    let allButton: UIButton = {
-        let button = UIButton.createCustomButton(title: "All",
-                                                 font: .poppins(ofSize: 12, weight: .medium),
-                                                 titleColor: UIColor(hexString: "#363062"))
-        button.tag = LevelType.all.rawValue
+    let newButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "iconMore"), for: .normal)
+        button.tintColor = .diEatGray600
         return button
     }()
-    
-    let level1Button: UIButton = {
-        let button = UIButton.createCustomButton(title: "Level 1",
-                                                 font: .poppins(ofSize: 12, weight: .medium),
-                                                 titleColor: UIColor(hexString: "#BDBDBD"))
-        button.tag = LevelType.level1.rawValue
-        return button
-    }()
-    
-    let level2Button: UIButton = {
-        let button = UIButton.createCustomButton(title: "level 2",
-                                                 font: .poppins(ofSize: 12, weight: .medium),
-                                                 titleColor: UIColor(hexString: "#BDBDBD"))
-        button.tag = LevelType.level2.rawValue
-        return button
-    }()
-    
-    let level3Button: UIButton = {
-        let button = UIButton.createCustomButton(title: "lebel 3",
-                                                 font: .poppins(ofSize: 12, weight: .medium),
-                                                 titleColor: UIColor(hexString: "#BDBDBD"))
-        button.tag = LevelType.level3.rawValue
-        return button
-    }()
-    
+
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.clipsToBounds = true
@@ -120,43 +90,8 @@ class RecipeView: BaseView {
     }
     
     // MARK: - UI
-    func updateRecipeView(type: RecipeType) {
-//        self.label.text = type == .new ? "New Recipe" : "Best Recipe"
-        
-    }
-    
-    func updateLevelbutton(level: LevelType) {
-        [self.allButton, self.level1Button, self.level2Button, self.level3Button].enumerated().forEach { idx, button in
-            let title: String
-            switch idx {
-            case LevelType.all.rawValue:
-                title = "All"
-            case LevelType.level1.rawValue:
-                title = "Level 1"
-            case LevelType.level2.rawValue:
-                title = "Level 2"
-            case LevelType.level3.rawValue:
-                title = "Level 3"
-            default:
-                title = ""
-            }
-            
-            let fontColor = (level.rawValue == idx) ? "#363062" : "#BDBDBD"
-            
-            var attString = AttributedString(title)
-            attString.font = .poppins(ofSize: 12, weight: .medium)
-            attString.foregroundColor = UIColor(hexString: fontColor)
-            
-            button.configuration?.attributedTitle = attString
-        }
-    }
-    
     private func setUI() {
-        [self.allButton, self.level1Button, self.level2Button, self.level3Button].forEach {
-            self.filterStackView.addArrangedSubview($0)
-        }
-        
-        [self.bestLabel, self.collectionView, self.newLabel, self.filterStackView].forEach {
+        [self.bestLabel, self.bestButton, self.collectionView, self.newLabel, self.newButton, self.levelButtonView].forEach {
             self.headerView.addSubview($0)
         }
         
@@ -169,6 +104,13 @@ class RecipeView: BaseView {
             make.top.equalToSuperview().inset(16)
             make.leading.equalToSuperview().inset(28)
             make.height.equalTo(38)
+        }
+        
+        self.bestButton.snp.makeConstraints { make in
+            make.trailing.equalToSuperview()
+            make.bottom.equalTo(self.bestLabel).offset(-4)
+            make.width.equalTo(48)
+            make.height.equalTo(20)
         }
             
         self.collectionView.snp.makeConstraints { make in
@@ -183,7 +125,14 @@ class RecipeView: BaseView {
             make.height.equalTo(38)
         }
 
-        self.filterStackView.snp.makeConstraints { make in
+        self.newButton.snp.makeConstraints { make in
+            make.trailing.equalToSuperview()
+            make.bottom.equalTo(self.newLabel).offset(-4)
+            make.width.equalTo(48)
+            make.height.equalTo(20)
+        }
+        
+        self.levelButtonView.snp.makeConstraints { make in
             make.top.equalTo(self.newLabel.snp.bottom).offset(10)
             make.leading.equalToSuperview().inset(28)
             make.bottom.equalToSuperview()

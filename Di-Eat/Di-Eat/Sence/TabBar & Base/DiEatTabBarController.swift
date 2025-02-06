@@ -14,7 +14,7 @@ class DiEatTabBarController: UIViewController {
     private let headerView = UIView()
     private let headerLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor(hexString: "#363062")
+        label.textColor = .diEatNavy
         label.font = .poppins(ofSize: 24, weight: .bold)
         return label
     }()
@@ -28,6 +28,16 @@ class DiEatTabBarController: UIViewController {
         self.view.backgroundColor = .white
         
         self.configure()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        if let windowScene = view.window?.windowScene {
+            let statusBarHeight = windowScene.statusBarManager?.statusBarFrame.height ?? 0
+            self.additionalSafeAreaInsets.top = -statusBarHeight
+        }
     }
     
     convenience init(tab: Tab) {
@@ -71,17 +81,20 @@ class DiEatTabBarController: UIViewController {
     func moveToVC(_ tab: Tab) {
         self.headerLabel.text = tab.rawValue
         
+        let childVC: UIViewController
         switch tab {
         case .calorie:
-            let childVC = CalorieViewController()
-            self.setChildViewController(childVC)
+            childVC = UINavigationController(rootViewController: CalorieViewController())
         case .recipe:
-            let childVC = RecipeViewController()
-            self.setChildViewController(childVC)
+            childVC = UINavigationController(rootViewController: RecipeViewController())
         case .youTube:
-            let childVC = YouTubeViewController()
-            self.setChildViewController(childVC)
+            childVC = UINavigationController(rootViewController: YouTubeViewController())
         }
+        
+        (childVC as? UINavigationController)?.navigationBar.isHidden = true
+        
+        self.setChildViewController(childVC)
+        
     }
     
     func setChildViewController(_ childVC: UIViewController) {

@@ -14,14 +14,14 @@ class RecipeCollectionViewCell: UICollectionViewCell {
     private var view: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 8
-        view.layer.borderWidth = 1.6
-        view.layer.borderColor = UIColor(hexString: "#BDBDBD", alpha: 0.4).cgColor
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.diEatGray400.cgColor
         return view
         
     }()
     private var recipeImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = UIColor(hexString: "#E2E2E2")
+        imageView.backgroundColor = .diEatGray100
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 8
         imageView.clipsToBounds = true
@@ -30,13 +30,13 @@ class RecipeCollectionViewCell: UICollectionViewCell {
     
     private var rankingLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor =  UIColor(hexString: "#5BDAA4")
+        label.backgroundColor = .diEatOrange
         label.font = .poppins(ofSize: 14, weight: .medium)
         label.textColor = .white
         label.textAlignment = .center
         label.layer.cornerRadius = 4
-        label.layer.borderWidth = 1.6
-        label.layer.borderColor = UIColor(hexString: "#BDBDBD", alpha: 0.4).cgColor
+        label.layer.borderWidth = 0.8
+        label.layer.borderColor = UIColor.diEatGray100.cgColor
         label.clipsToBounds = true
         return label
     }()
@@ -51,8 +51,8 @@ class RecipeCollectionViewCell: UICollectionViewCell {
     
     private let typeLabel: UILabel = {
         let label = UILabel()
-        label.font = .poppins(ofSize: 16, weight: .medium)
-        label.textColor = UIColor(hexString: "#363062")
+        label.font = .poppins(ofSize: 12, weight: .medium)
+        label.textColor = .diEatGray800
         return label
     }()
     

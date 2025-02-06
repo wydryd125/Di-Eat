@@ -63,13 +63,13 @@ struct Recipe: Codable, Hashable {
     var transformedLevel: String {
         switch level {
         case "아무나": 
-            return "Level 1"
+            return "Easy"
         case "초급":
-            return "Level 2"
+            return "Normal"
         case "중급":
-            return "Level 3"
+            return "Hard"
         default:
-            return "Level 1"
+            return "Easy"
         }
     }
     
@@ -81,5 +81,13 @@ struct Recipe: Codable, Hashable {
         let day = dateString.suffix(2)
         
         return "\(year).\(month).\(day)"
+    }
+    
+    func getCookingTime() -> String {
+        return cookingTime == "" ? "30분 이내" : cookingTime
+    }
+    
+    func getServingSize() -> String {
+        return servingSize == "" ? "1인분" : servingSize
     }
 }

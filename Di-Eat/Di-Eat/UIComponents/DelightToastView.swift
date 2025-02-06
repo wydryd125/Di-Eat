@@ -61,7 +61,7 @@ class DelightToastView: UIView {
 //    }
 //    
     private func setUI() {
-        self.backgroundColor = UIColor(hexString: "#363062").withAlphaComponent(0.88)
+        self.backgroundColor = .diEatNavy.withAlphaComponent(0.88)
         self.layer.cornerRadius = 8
         
         [self.nameLabel, self.typeLabel, self.amountLabel, self.dateLabel].forEach {

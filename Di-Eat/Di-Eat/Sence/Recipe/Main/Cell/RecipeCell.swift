@@ -14,7 +14,7 @@ class RecipeCell: UITableViewCell {
     
     private var recipeImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = UIColor(hexString: "#E2E2E2")
+        imageView.backgroundColor = .diEatGray100
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 8
         imageView.clipsToBounds = true
@@ -30,8 +30,8 @@ class RecipeCell: UITableViewCell {
     
     private let typeLabel: UILabel = {
         let label = UILabel()
-        label.font = .poppins(ofSize: 14, weight: .medium)
-        label.textColor = UIColor(hexString: "#363062")
+        label.font = .poppins(ofSize: 12, weight: .medium)
+        label.textColor = .diEatGray800
         return label
     }()
     
@@ -44,15 +44,16 @@ class RecipeCell: UITableViewCell {
     private let dateLabel: UILabel = {
         let label = UILabel()
         label.font = .poppins(ofSize: 14, weight: .light)
-        label.textColor = UIColor(hexString: "#6B6B6B")
+        label.textColor = .diEatGray800
         return label
     }()
     
     private let lineView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(hexString: "#BDBDBD", alpha: 0.4)
+        view.backgroundColor = .diEatGray400
         return view
     }()
+    
     // MARK: - Life Cycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -101,7 +102,6 @@ class RecipeCell: UITableViewCell {
             make.leading.equalTo(self.recipeImageView.snp.trailing).offset(20)
             make.bottom.equalTo(self.levelLabel.snp.top).offset(-4)
             make.trailing.equalToSuperview().inset(28)
-//            make.width.lessThanOrEqualTo(self.contentView.snp.width).multipliedBy(0.75).offset(-127)
         }
         
         self.levelLabel.snp.makeConstraints { make in

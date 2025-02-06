@@ -12,7 +12,7 @@ class YouTubeCell: UITableViewCell {
     
     private var recipeImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = UIColor(hexString: "#E2E2E2")
+        imageView.backgroundColor = .diEatGray100
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 8
         imageView.clipsToBounds = true
@@ -29,7 +29,7 @@ class YouTubeCell: UITableViewCell {
     private let typeLabel: UILabel = {
         let label = UILabel()
         label.font = .poppins(ofSize: 14, weight: .medium)
-        label.textColor = UIColor(hexString: "#363062")
+        label.textColor = .diEatNavy
         return label
     }()
     
@@ -42,13 +42,13 @@ class YouTubeCell: UITableViewCell {
     private let dateLabel: UILabel = {
         let label = UILabel()
         label.font = .poppins(ofSize: 14, weight: .light)
-        label.textColor = UIColor(hexString: "#6B6B6B")
+        label.textColor = .diEatGray800
         return label
     }()
     
     private let lineView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(hexString: "#BDBDBD", alpha: 0.4)
+        view.backgroundColor = UIColor.diEatNavy.withAlphaComponent(0.4)
         return view
     }()
     // MARK: - Life Cycle

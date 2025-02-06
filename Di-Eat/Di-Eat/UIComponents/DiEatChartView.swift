@@ -23,14 +23,14 @@ class DiEatChartView: UIView {
     let startLabel: UILabel = {
         let label = UILabel()
         label.font = .poppins(ofSize: 16, weight: .regular)
-        label.textColor = UIColor(hexString: "#BDBDBD")
+        label.textColor = .diEatNavy
         return label
     }()
     
     let endLabel: UILabel = {
         let label = UILabel()
         label.font = .poppins(ofSize: 16, weight: .regular)
-        label.textColor = UIColor(hexString: "#BDBDBD")
+        label.textColor = .diEatNavy
         return label
     }()
     
@@ -89,7 +89,7 @@ class DiEatChartView: UIView {
         dataSet.mode = .cubicBezier
         dataSet.drawCirclesEnabled = false
         dataSet.lineWidth = 2.0
-        dataSet.setColor(UIColor(hexString: "#363062"))
+        dataSet.setColor(.diEatNavy)
         dataSet.drawHorizontalHighlightIndicatorEnabled = false
         dataSet.drawValuesEnabled = false
         
@@ -174,7 +174,7 @@ class DiEatChartView: UIView {
     }
     
     private func setUI() {
-        let incomeView = self.getLegendView(title: "Income", color: UIColor(hexString: "#363062"))
+        let incomeView = self.getLegendView(title: "Income", color: .diEatNavy)
         let expenceView = self.getLegendView(title: "Expence", color: UIColor(hexString: "#5BDAA4"))
         
         [incomeView, expenceView].forEach {
