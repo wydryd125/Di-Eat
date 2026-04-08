@@ -17,6 +17,32 @@ class CalorieView: BaseView {
         return view
     }()
     
+    let searchView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 16
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.diEatGray600.cgColor
+        
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "iconFinder")
+        imageView.tintColor = .diEatGray600
+        
+        view.addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(16)
+            make.centerY.equalToSuperview()
+            make.size.equalTo(24)
+        }
+        return view
+    }()
+    
+    let searchTextfield: UITextField = {
+        let textField = UITextField()
+        textField.font = .poppins(ofSize: 16, weight: .medium)
+        textField.textColor = .black
+        return textField
+    }()
+    
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.clipsToBounds = true
@@ -45,14 +71,24 @@ class CalorieView: BaseView {
     
     // MARK: - UI
     private func setUI() {
-        self.tableView.tableHeaderView = self.headerView
-        self.addSubview(self.tableView)
+//        self.tableView.tableHeaderView = self.headerView
+        self.searchView.addSubview(self.searchTextfield)
+        [self.searchView, self.tableView].forEach {
+            self.addSubview($0)
+        }
     }
     
     private func setConstraints() {
-        self.headerView.snp.makeConstraints { make in
-            make.height.greaterThanOrEqualTo(469)
-            make.width.equalTo(self.tableView)
+        self.searchView.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(28)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(44)
+        }
+        
+        self.searchTextfield.snp.makeConstraints { make in
+            make.leading.equalToSuperview().inset(16)
+            make.trailing.equalToSuperview().inset(56)
+            make.centerY.equalToSuperview()
         }
     }
 }

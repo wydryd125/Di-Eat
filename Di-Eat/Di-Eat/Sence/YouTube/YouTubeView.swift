@@ -10,7 +10,6 @@ import Combine
 
 class YouTubeView: BaseView {
     // MARK: - Property
-    
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.clipsToBounds = true
@@ -19,7 +18,7 @@ class YouTubeView: BaseView {
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(RecipeCell.self, forCellReuseIdentifier: RecipeCell.identifier)
+        tableView.register(YouTubeCell.self, forCellReuseIdentifier: YouTubeCell.identifier)
         return tableView
     }()
     
@@ -28,7 +27,7 @@ class YouTubeView: BaseView {
     // MARK: - Life Cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
-       
+        
         self.setUI()
         self.setConstraints()
     }
@@ -39,14 +38,12 @@ class YouTubeView: BaseView {
     
     // MARK: - UI
     private func setUI() {
-//        self.tableView.tableHeaderView = self.headerView
         self.addSubview(self.tableView)
     }
     
     private func setConstraints() {
-//        self.headerView.snp.makeConstraints { make in
-//            make.height.greaterThanOrEqualTo(469)
-//            make.width.equalTo(self.tableView)
-//        }
+        self.tableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
 }

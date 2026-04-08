@@ -9,8 +9,8 @@ import Foundation
 import Combine
 
 class YoutubeViewModel: ObservableObject {
-    private let repository = DietRecipeRepository()
-    @Published var youTubeVideo: [YouTubeVideo]?
+    private let repository = YouTubeRepository()
+    @Published var youtubes: [YouTube]?
     
     @Published var isLoading: Bool = false
     private var cancellables = Set<AnyCancellable>()
@@ -20,7 +20,7 @@ class YoutubeViewModel: ObservableObject {
     func bind() {
         self.isLoading = true
         
-        self.repository.loadRecipeVideo()
+        self.repository.loadYouTubeVideos()
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
@@ -29,8 +29,8 @@ class YoutubeViewModel: ObservableObject {
                     print("Failed to load Recipes: \(error.localizedDescription)")
                     self.isLoading = false
                 }
-            }, receiveValue: { video in
-                self.youTubeVideo = video
+            }, receiveValue: { videos in
+                self.youtubes = videos.shuffled()
             })
             .store(in: &cancellables)
     }

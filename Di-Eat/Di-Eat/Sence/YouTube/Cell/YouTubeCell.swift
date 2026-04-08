@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import Kingfisher
 
 class YouTubeCell: UITableViewCell {
     static let identifier = "YouTubeCell"
     
-    private var recipeImageView: UIImageView = {
+    var youtubeImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .diEatGray100
         imageView.contentMode = .scaleAspectFill
@@ -21,36 +22,19 @@ class YouTubeCell: UITableViewCell {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .poppins(ofSize: 16, weight: .medium)
-        label.textColor = .black
+        label.font = .poppins(ofSize: 20, weight: .bold)
+        label.numberOfLines = 2
+        label.textColor = .white
         return label
     }()
-    
-    private let typeLabel: UILabel = {
+
+    private let creatorLabel: UILabel = {
         let label = UILabel()
-        label.font = .poppins(ofSize: 14, weight: .medium)
-        label.textColor = .diEatNavy
+        label.font = .poppins(ofSize: 16, weight: .bold)
+        label.textColor = .white
         return label
     }()
     
-    private let levelLabel: UILabel = {
-        let label = UILabel()
-        label.font = .poppins(ofSize: 12, weight: .light)
-        return label
-    }()
-    
-    private let dateLabel: UILabel = {
-        let label = UILabel()
-        label.font = .poppins(ofSize: 14, weight: .light)
-        label.textColor = .diEatGray800
-        return label
-    }()
-    
-    private let lineView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.diEatNavy.withAlphaComponent(0.4)
-        return view
-    }()
     // MARK: - Life Cycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -68,59 +52,41 @@ class YouTubeCell: UITableViewCell {
         
     }
     
-    func drawCell(youTube: YouTubeVideo) {
-//        if let imageURL = URL(string: recipe.imageUrl) {
-//            self.recipeImageView.kf.setImage(with: imageURL)
-//        }
-//        self.titleLabel.text = recipe.title
-//        self.typeLabel.text = recipe.foodType
-//        self.levelLabel.text = recipe.transformedLevel
-//        self.dateLabel.text = recipe.formatDate
+    func drawCell(youTube: YouTube) {
+        let urlString = "https://img.youtube.com/vi/\(youTube.key)/0.jpg"
+        self.youtubeImageView.kf.setImage(with: URL(string: urlString))
+//        self.titleLabel.text = youTube.title
+//        self.creatorLabel.text = youTube.creator
+
     }
     
     private func setUI() {
-//        self.selectionStyle = .none
-//        self.backgroundColor = .white
-//        
-//        [self.recipeImageView, self.nameLabel, self.typeLabel, self.levelLabel, self.dateLabel, self.lineView].forEach {
-//            self.contentView.addSubview($0)
-//        }
+        self.selectionStyle = .none
+        self.contentView.backgroundColor = .white
+        
+        [self.titleLabel, self.creatorLabel].forEach {
+            self.youtubeImageView.addSubview($0)
+        }
+        
+        self.contentView.addSubview(self.youtubeImageView)
     }
     
     private func setConstraints() {
-        self.recipeImageView.snp.makeConstraints { make in
+        self.youtubeImageView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(10)
-            make.leading.equalToSuperview().inset(28)
+            make.leading.trailing.equalToSuperview().inset(16)
             make.bottom.equalToSuperview().inset(10)
-            make.size.equalTo(80)
+            make.height.equalTo(180)
         }
         
         self.titleLabel.snp.makeConstraints { make in
-            make.leading.equalTo(self.recipeImageView.snp.trailing).offset(20)
-            make.bottom.equalTo(self.levelLabel.snp.top).offset(-4)
-            make.trailing.equalToSuperview().inset(28)
-//            make.width.lessThanOrEqualTo(self.contentView.snp.width).multipliedBy(0.75).offset(-127)
+            make.top.equalToSuperview().inset(8)
+            make.leading.trailing.equalToSuperview().inset(20)
         }
         
-        self.levelLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(self.recipeImageView)
-            make.leading.equalTo(self.titleLabel)
-        }
-        
-        self.typeLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.levelLabel.snp.bottom).offset(4)
-            make.leading.equalTo(self.titleLabel)
-        }
-        
-        self.dateLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.typeLabel)
-            make.trailing.equalToSuperview().inset(28)
-        }
-        
-        self.lineView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(28)
-            make.bottom.equalToSuperview()
-            make.height.equalTo(1)
+        self.creatorLabel.snp.makeConstraints { make in
+            make.top.equalTo(self.titleLabel.snp.bottom).offset(4)
+            make.trailing.equalTo(self.titleLabel)
         }
     }
 }

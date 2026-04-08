@@ -7,11 +7,9 @@
 
 import Foundation
 
-struct YouTubeVideo: Codable {
+struct YouTube: Codable, Hashable {
+    var key: String
     var title: String
     var creator: String
     var channelUrl: String
-    var url: String
-    var ingredients: [String]
-    var description: String
 }

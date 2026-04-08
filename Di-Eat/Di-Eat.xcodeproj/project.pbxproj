@@ -11,7 +11,7 @@
 		0956579E2D39323F0006F73B /* RecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0956579D2D39323F0006F73B /* RecipeCollectionViewCell.swift */; };
 		095657A02D3957AF0006F73B /* YouTubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0956579F2D3957AF0006F73B /* YouTubeView.swift */; };
 		095657A22D3957BE0006F73B /* YouTubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095657A12D3957BE0006F73B /* YouTubeViewController.swift */; };
-		095657A42D395D100006F73B /* youTubeVideo.json in Resources */ = {isa = PBXBuildFile; fileRef = 095657A32D395D100006F73B /* youTubeVideo.json */; };
+		095657A42D395D100006F73B /* youtube.json in Resources */ = {isa = PBXBuildFile; fileRef = 095657A32D395D100006F73B /* youtube.json */; };
 		095657A72D395D630006F73B /* YoutubeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095657A62D395D630006F73B /* YoutubeViewModel.swift */; };
 		095657A92D395D690006F73B /* YouTubeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095657A82D395D690006F73B /* YouTubeVideo.swift */; };
 		095657AC2D395F7A0006F73B /* YouTubeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095657AB2D395F7A0006F73B /* YouTubeCell.swift */; };
@@ -23,6 +23,7 @@
 		095657BD2D4CDA7C0006F73B /* RecipeListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095657BC2D4CDA7C0006F73B /* RecipeListTableViewCell.swift */; };
 		095657BF2D4CE4CE0006F73B /* RecipeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095657BE2D4CE4CD0006F73B /* RecipeListViewModel.swift */; };
 		095657C12D54E83A0006F73B /* DiEatRecipeLevelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095657C02D54E83A0006F73B /* DiEatRecipeLevelButtonView.swift */; };
+		095657C32D5509D30006F73B /* YouTubeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095657C22D5509D30006F73B /* YouTubeRepository.swift */; };
 		095B5E152D22825F00FCEF62 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 095B5E132D22825F00FCEF62 /* Poppins-Medium.ttf */; };
 		095B5E162D22825F00FCEF62 /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 095B5E142D22825F00FCEF62 /* Poppins-Light.ttf */; };
 		095B5E182D22827900FCEF62 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 095B5E172D22827900FCEF62 /* Poppins-Regular.ttf */; };
@@ -82,7 +83,7 @@
 		0956579D2D39323F0006F73B /* RecipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCollectionViewCell.swift; sourceTree = "<group>"; };
 		0956579F2D3957AF0006F73B /* YouTubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeView.swift; sourceTree = "<group>"; };
 		095657A12D3957BE0006F73B /* YouTubeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeViewController.swift; sourceTree = "<group>"; };
-		095657A32D395D100006F73B /* youTubeVideo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = youTubeVideo.json; sourceTree = "<group>"; };
+		095657A32D395D100006F73B /* youtube.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = youtube.json; sourceTree = "<group>"; };
 		095657A62D395D630006F73B /* YoutubeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeViewModel.swift; sourceTree = "<group>"; };
 		095657A82D395D690006F73B /* YouTubeVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeVideo.swift; sourceTree = "<group>"; };
 		095657AB2D395F7A0006F73B /* YouTubeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeCell.swift; sourceTree = "<group>"; };
@@ -94,6 +95,7 @@
 		095657BC2D4CDA7C0006F73B /* RecipeListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListTableViewCell.swift; sourceTree = "<group>"; };
 		095657BE2D4CE4CD0006F73B /* RecipeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListViewModel.swift; sourceTree = "<group>"; };
 		095657C02D54E83A0006F73B /* DiEatRecipeLevelButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiEatRecipeLevelButtonView.swift; sourceTree = "<group>"; };
+		095657C22D5509D30006F73B /* YouTubeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeRepository.swift; sourceTree = "<group>"; };
 		095B5E132D22825F00FCEF62 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		095B5E142D22825F00FCEF62 /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
 		095B5E172D22827900FCEF62 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			children = (
 				0984CC7F2D23387B006F7957 /* Json */,
 				096ED8112D2339A400D5C8B8 /* DietRecipeRepository.swift */,
+				095657C22D5509D30006F73B /* YouTubeRepository.swift */,
 			);
 			path = "API+Repository";
 			sourceTree = "<group>";
@@ -331,7 +334,7 @@
 		0984CC7F2D23387B006F7957 /* Json */ = {
 			isa = PBXGroup;
 			children = (
-				095657A32D395D100006F73B /* youTubeVideo.json */,
+				095657A32D395D100006F73B /* youtube.json */,
 				096F81CA2D329F2300D50F49 /* dietRecipe.json */,
 			);
 			path = Json;
@@ -527,7 +530,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				096F81CB2D329F2300D50F49 /* dietRecipe.json in Resources */,
-				095657A42D395D100006F73B /* youTubeVideo.json in Resources */,
+				095657A42D395D100006F73B /* youtube.json in Resources */,
 				095B5E152D22825F00FCEF62 /* Poppins-Medium.ttf in Resources */,
 				09EDE0FB2D22CCB400AD7149 /* Poppins-Bold.ttf in Resources */,
 				09F3C5082D225A20002D532F /* Assets.xcassets in Resources */,
@@ -576,6 +579,7 @@
 				09EDE0FD2D22D09900AD7149 /* Extension+UIButton.swift in Sources */,
 				096ED8122D2339A400D5C8B8 /* DietRecipeRepository.swift in Sources */,
 				095B5E1E2D2282E000FCEF62 /* Extension+UIFont.swift in Sources */,
+				095657C32D5509D30006F73B /* YouTubeRepository.swift in Sources */,
 				095657C12D54E83A0006F73B /* DiEatRecipeLevelButtonView.swift in Sources */,
 				097425F92D243093000C998A /* Extension+Array.swift in Sources */,
 				09B48D662D22D97900A12C72 /* Extension+UIControl.swift in Sources */,
